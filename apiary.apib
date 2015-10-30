@@ -1,0 +1,690 @@
+FORMAT: 1A
+HOST: http://tubis.cz/api/v1/
+
+# Tubis
+
+Tubis API is the REST API project for managing events, users, documents, etc.
+
+# Data Structures
+
+## Auth (object)
++ username: "hrabalo" (string, required)
++ password: "123456" (string, required)
+
+## Role (object)
++ id: 1 (number, required)
++ role: "ADMIN" (string, required)
+
+## User (object)
++ id: 1 (number, required)
++ username: "hrabalo" (string, required)
++ forename: "Ondřej" (string, required)
++ surname: "Hrabal" (string, required)
++ role: "ADMIN" (string, required)
++ active: true (boolean, required)
+
+## User Password (object)
++ password: "123456" (string, required)
+
+## Report (object)
++ id: 1 (number, required)
++ automatic: true (boolean, required)
++ source: "KERBEROS" (string, required)
++ title: "Rozbitá žárovka" (string, required)
++ priority: 1 (number, required)
++ description: Car stops in tunnel (string, required)
++ created: "2014-09-11T17:02:27.761+02:00" (string, required)
++ processed: "2014-09-11T17:02:27.761+02:00" (string, required)
++ operator: 45 (number, optional)
++ events: [] (array[SimpleEvent], optional)
+
+## Reports (object)
++ reports: [] (array[Report], required)
+
+## SimpleEvent (object)
++ id: 1 (number, required)
++ title: "Požár v tunelu" (string, required)
++ state: "NEW" (string, required)
+
+## Severity (object)
++ id: 1 (number, required)
++ name: "běžná událost BU" (string, required)
+
+## EventType (object)
++ code: "010" (string, required)
++ description: "Zvýšení obsahu škodlivin v ovzduší nad kritický limit" (string, required)
++ priority: 99 (number, required)
+
+## Owner (object)
++ id: 1 (string, required)
++ firstname: "Jan" (string, required)
++ surname: "Dlaždička" (string, required)
+
+## Event (object)
++ id: 1 (number, required)
++ title: "Požár" (string, required)
++ created: "2014-09-11T17:02:27.761+02:00" (string, required)
++ closed: "2014-09-11T17:02:27.761+02:00" (string, required)
++ state: "NEW" (string, required)
++ location: "Sektor C1" (string, optional)
++ type: {} (EventType, required)
++ severity: {} (Severity, required)
++ owner: {} (Owner, required)
++ comment: "Nahlášeno z více zdrojů" (string, required)
++ reports: [1,3,4] (array[number], required)
++ steps: {} (EventSteps, required)
++ contacts: [] (array[Contact], optional)
++ attachments: [] (array[Attachment], optional)
+
+
+## Contact (object)
++ title: "PČR" (string, required)
++ name: "plk. Petr Dostřel" (string, optional)
++ phone: "+420777888999" (string, optional)
++ email: "pmc1@praha.cz" (string, optional)
+
+## Attachment (object)
++ link: "http://tubis/api/v1/attachmens/1" (string, required)
++ name: "Photo.jpg"
+
+## EventSteps (object)
++ technology: [] (array[EventStep], required)
++ traffic: [] (array[EventStep], required)
++ other: [] (array[EventStep], required)
+
+## EventStep (object) 
++ id: 1 (number, required)
++ position: 1 (number, required)
++ comment: "Nepodařilo se dovolat" (string, optional)
++ description: "Zavolej na PČR" (string, required)
++ closed: "2014-09-11T17:02:27.761+02:00" (string, required)
++ attachments: [] (array[Attachment], required)
+
+## Events (object)
++ events: [] (array[Event], required)
+
+
+
+# Group Authentication resources
+The authentication resources can be used for **log in** and **log out** the user to the Tubis application.
+
+## Authentication [/authentication]
+
+### Login [POST]
+-----------
+**Returns the private api token key for the user with its validity**
+
+-----------
+
++ Request
+    + Attributes (Auth)
+    
+    + Header
+    
+            Content-Type: application/json
+
+    + Body
+    
+            {
+                "username" : "username",
+                "password" : "123456"
+            }
+
++ Response 200 (application/json)
+
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+    
+    
+    + Body
+
+            {
+                "token": "fc7ef14ba27e29c89ec640cec3b91fb374db9b5abaa5e4699680c8c561bd9f5a",
+                "validity": "2015-09-09T21:58:31+02:00",
+                "role": "ADMIN"
+            }
+
++ Response 400
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+### Logout [DELETE]
+-----------
+**Logs out the user by the Api-Key, if the response is successful.**
+
+-----------
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 204
+
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+### Reconnect [PUT]
+-----------
+**Reconnects the user by the Api-Key, if the response is successful.**
+
+-----------
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+            
+    + Body
+
+            {
+                "validity": "2015-09-09T21:58:31+02:00"
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+
+# Group Role resources
+The role resources can be used for managing user roles.
+
+## Role collection [/tunnel/{tunnelId}/roles]
+
+### Get all roles [GET]
+-----------
+**Returns all roles.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+
+    + Attributes (Role)
+    
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+    
+    + Body 
+    
+            {
+                "roles": [
+                    {
+                        "id": 1,
+                        "role": "ADMIN"
+                    },
+                    {
+                        "id": 2,
+                        "role": "OPERATOR"
+                    },
+                    {
+                        "id": 3,
+                        "role": "POLICE"
+                    }
+                ]
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+# Group User resources
+The user resources can be used for managing users.
+
+## User collection [/tunnel/{tunnelId}/users]
+
+### Get all users [GET]
+-----------
+**Returns all users.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+
+    + Attributes (User)
+    
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+    
+    + Body 
+    
+            {
+                "users": [
+                    {
+                        "username": "hrabadlo",
+                        "forename": "Ondřej",
+                        "surname": "Schrabal",
+                        "role": "ADMIN",
+                        "active": false
+                    },
+                    {
+                        "username": "blazekv",
+                        "forename": "Vlastislav",
+                        "surname": "Blažek",
+                        "role": "OPERATOR",
+                        "active": true
+                    }
+                ]
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## User [/tunnel/{tunnelId}/users/{id}]
+
+### Update user data [PUT]
+-----------
+**Update user.**
+
++ Request
+    + Attributes (User)
+
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
+    + Body
+    
+            {
+                "username": "hrabalo",
+                "forename": "Ondřej",
+                "surname": "Hrabal",
+                "role": "ADMIN",
+                "active": true
+            }
+
++ Response 204
+
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+### Delete user [DELETE]
+-----------
+**Deactivate user.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 204
+
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+            
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## User password [/tunnel/{tunnelId}/users/{id}/password]
+
+### Update user password [PUT]
+-----------
+**Change user password.**
+
++ Request
+    + Attributes (User Password)
+
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
+    + Body
+    
+            {
+                "password": "123456"
+            }
+
++ Response 204
+
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+            
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+# Group Event resources
+The event resources can be used for managing events.
+
+## Event collection [/tunnel/{tunnelId}/events]
+
+### Get all events [GET]
+-----------
+**Returns all events.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+
+    + Attributes
+    
+    + Body 
+    
+            {
+              "events": [
+                {
+                  "id": 1,
+                  "created": "2014-09-11T17:02:27.761+02:00",
+                  "closed":  "2014-09-11T17:02:27.761+02:00",
+                  "type": {
+                    "code": "010",
+                    "description": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit",
+                    "priority": 6
+                  },
+                  "severity": {
+                    "id": "1",
+                    "name": "běžná událost BU"
+                  },
+                  "owner": {
+                    "id": 1,
+                    "firstname": "Jan",
+                    "surname": "Dlaždička"
+                  },
+                  "steps": {
+                    "technology" : [
+                      {
+                        "id": 1,
+                        "position": 1,
+                        "comment": "Nepodařilo se dovolat",
+                        "description": "Zavolej na PČR",
+                        "closed": "2014-09-11T17:02:27.761+02:00",
+                        "attachments": []
+                      }
+                    ],
+                    "traffic" : [
+                      {
+                        "id": 1,
+                        "position": 1,
+                        "comment": "Nepodařilo se dovolat",
+                        "description": "Zavolej na PČR",
+                        "closed": "2014-09-11T17:02:27.761+02:00",
+                        "attachments": []
+                      }
+                    ],
+                    "other" : [
+                      
+                    ]
+                  },
+                  "reports": [1,3,4]
+                }
+              ]
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## Single event [/tunnel/{tunnelId}/events/{id}]
+
+### Get single event [GET]
+-----------
+**Returns single event.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+
+    + Attributes
+    
+    + Body 
+    
+
+            {
+              
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## Event step collection [/tunnel/{tunnelId}/events/steps]
+## Event document collection [/tunnel/{tunnelId}/events/documents]
+
+# Group Documents resources
+The documentation resources can be used for managing tunel information.
+
+## Document collection [/tunnel/{tunnelId}/documents]
+## Photo document collection [/tunnel/{tunnelId}/documents/photos]
+## Archive document collection [/tunnel/{tunnelId}/documents/archives]
+## Document collection [/tunnel/{tunnelId}/documents/schemas]
+
+# Group Schedulers resources
+The scheduler resources can be used for managing automatic schedule events.
+
+## Scheduler collection [/tunnel/{tunnelId}/schedulers]
+
+# Group Reports resources
+The report resources can be used for managing reports.
+
+## Report collection [/tunnel/{tunnelId}/reports]
+
+### Get all reports [GET]
+-----------
+**Returns all reports.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+
+    + Attributes (Reports)
+    
+    + Body 
+    
+            {
+              "reports": [
+                {
+                  "id": 1,
+                  "automatic": false,
+                  "title": "Kočička v šachtě",
+                  "description":  "V šachte se vyskytla kočicka. Vydává dešsivé zvuky. Pravděpodobně v sekci C1",
+                  "author": {
+                    "id": 1,
+                    "firstname": "Jan",
+                    "surname": "Tunelář"
+                  },
+                  "source": "PHONE",
+                  "state": "NEW",
+                  "priority": 1,
+                  "type": "",
+                  "created": "2014-10-20T16:02:27.761+02:00",
+                  "events": []
+                },
+                {
+                  "id": 2,
+                  "automatic": false,
+                  "title": "Permoník v řídící místnosti",
+                  "description":  "V řídící místnosti se objevil permoník. V ruce měl kladívko a lucernu. Lucerna vydávala modré světlo a permoník nemluvil česky ani jiným známým jazykem.",
+                  "author": {
+                    "id": 2,
+                    "firstname": "Petr",
+                    "surname": "Výkop"
+                  },
+                  "source": "CCTV",
+                  "state": "PROCESSED",
+                  "priority": 1,
+                  "type": "",
+                  "created": "2014-10-20T17:02:27.761+02:00",
+                  "events": []
+                },
+                {
+                  "id": 3,
+                  "automatic": true,
+                  "title": "Krtek",
+                  "description":  "V tunelu se objevil krtičinec. Zvláštní je, že se objevil i když v tunelu není hlína, ale silnice.",
+                  "created": "2014-10-20T18:32:27.761+02:00",
+                  "source": "CCTV",
+                  "state": "DONE",
+                  "priority": 1,
+                  "author": {
+                    "id": 2,
+                    "firstname": "Libor",
+                    "surname": "Zahradník"
+                  },
+                  "events": []
+                },
+                {
+                  "id": 4,
+                  "automatic": true,
+                  "title": "Žárovka",
+                  "priority": 10,
+                  "source": "KERBEROS",
+                  "state": "DONE",
+                  "description":  "V sekci A7 nesvítí světlo.",
+                  "created": "2014-10-20T17:11:27.761+02:00",
+                  "events": []
+                }
+              ]
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## Single report [/tunnel/{tunnelId}/reports/{id}]
+
+### Get single reports [GET]
+-----------
+**Returns single report.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+
+    + Attributes (Reports)
+    
+    + Body 
+    
+
+            {
+              "id": 1,
+              "automatic": false,
+              "title": "Kočička v šachtě",
+              "description":  "V šachte se vyskytla kočicka. Vydává dešsivé zvuky. Pravděpodobně v sekci C1",
+              "author": {
+                "id": 1,
+                "firstname": "Jan",
+                "surname": "Tunelář"
+              },
+              "source": "PHONE",
+              "state": "NEW",
+              "priority": 1,
+              "type": "",
+              "created": "2014-10-20T17:11:27.761+02:00",
+              "processed": "2015-10-20T17:11:27.761+02:00",
+              "events": [
+                {
+                    "id": 1,
+                    "title": "Lov koček",
+                    "state": "NEW"
+                },
+                {
+                    "id": 2,
+                    "title": "Neoprávněné vniknutí",
+                    "state": "CLOSED"
+                }
+              ]
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
