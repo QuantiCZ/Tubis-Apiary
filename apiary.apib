@@ -315,6 +315,41 @@ The user resources can be used for managing users.
 + Response 500
 + Response 503
 
+### Create user [POST]
+-----------
+**Create user.**
+
++ Request
+    + Attributes (User)
+    
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+    
+    + Body 
+    
+            {
+                "username": "blazekv",
+                "forename": "Vlastislav",
+                "surname": "Blažek",
+                "role": "OPERATOR",
+                "active": true
+            }
+            
++ Response 201 (application/json)
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+            Location: /tunnel/{tunnelId}/users/{id}
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
 ## User [/tunnel/{tunnelId}/users/{id}]
 
 ### Update user data [PUT]
