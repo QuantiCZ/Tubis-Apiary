@@ -528,7 +528,11 @@ The event resources can be used for managing events.
 
 + Response 200 (application/json)
 
-    + Attributes
+    + Attributes (Event)
+    
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
     
     + Body 
     
@@ -592,6 +596,10 @@ The event resources can be used for managing events.
 
 ## Single event [/tunnel/{tunnelId}/events/{id}]
 
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + id (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `id`which can identify event.
+
 ### Get single event [GET]
 -----------
 **Returns single event.**
@@ -604,13 +612,59 @@ The event resources can be used for managing events.
 
 + Response 200 (application/json)
 
-    + Attributes
+    + Attributes (Event)
+    
+    + Header
+
+             X-Time: 2014-09-11T17:02:27.761+02:00
     
     + Body 
     
 
             {
-              
+              "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
+              "created": "2014-09-11T17:02:27.761+02:00",
+              "closed":  "2014-09-11T17:02:27.761+02:00",
+              "type": {
+                "code": "010",
+                "description": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit",
+                "priority": 6
+              },
+              "severity": {
+                "id": "1",
+                "name": "běžná událost BU"
+              },
+              "owner": {
+                "id": 1,
+                "firstname": "Jan",
+                "surname": "Dlaždička"
+              },
+              "steps": {
+                "technology" : [
+                  {
+                    "id": 1,
+                    "position": 1,
+                    "comment": "Nepodařilo se dovolat",
+                    "description": "Zavolej na PČR",
+                    "closed": "2014-09-11T17:02:27.761+02:00",
+                    "attachments": []
+                  }
+                ],
+                "traffic" : [
+                  {
+                    "id": 1,
+                    "position": 1,
+                    "comment": "Nepodařilo se dovolat",
+                    "description": "Zavolej na PČR",
+                    "closed": "2014-09-11T17:02:27.761+02:00",
+                    "attachments": []
+                  }
+                ],
+                "other" : [
+                  
+                ]
+              },
+              "reports": [1,3,4]
             }
         
 + Response 401
@@ -620,6 +674,66 @@ The event resources can be used for managing events.
 + Response 406
 + Response 500
 + Response 503
+
+## Event step collection [/tunnel/{tunnelId}/events/types]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+
+### Get event types collection [GET]
+-----------
+**Returns all event types.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+
+    + Attributes (Event)
+    
+    + Header
+
+             X-Time: 2014-09-11T17:02:27.761+02:00
+    
+    + Body 
+    
+
+            {
+                "types": [
+                      {
+                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
+                        "code": "010",
+                        "name": "Požár v tunelu"
+                      },
+                      {
+                        "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
+                        "code": "020",
+                        "name": "Jiné nebezpečí"
+                      }
+                ]
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## Event step collection [/tunnel/{tunnelId}/events/subjects]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+
+## Event step collection [/tunnel/{tunnelId}/events/sources]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+
 
 ## Event step collection [/tunnel/{tunnelId}/events/steps]
 ## Event document collection [/tunnel/{tunnelId}/events/documents]
