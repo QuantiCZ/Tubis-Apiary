@@ -675,7 +675,7 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-## Event step collection [/tunnel/{tunnelId}/events/types]
+## Event types collection [/tunnel/{tunnelId}/events/types]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
@@ -724,16 +724,109 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-## Event step collection [/tunnel/{tunnelId}/events/subjects]
+## Event subjects collection [/tunnel/{tunnelId}/events/subjects]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
 
-## Event step collection [/tunnel/{tunnelId}/events/sources]
+### Get event subjects collection [GET]
+-----------
+**Returns all event subjects.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+
+    + Attributes (Event)
+    
+    + Header
+
+             X-Time: 2014-09-11T17:02:27.761+02:00
+    
+    + Body 
+    
+
+            {
+                "subjects": [
+                      {
+                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
+                        "code": "011",
+                        "name": "Požár v dopravním prostoru"
+                      },
+                      {
+                        "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
+                        "code": "012",
+                        "name": "Požár v technologickém prostoru"
+                      }
+                ]
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## Event sources collection [/tunnel/{tunnelId}/events/sources]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
 
+### Get event sources collection [GET]
+-----------
+**Returns all event sources.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+
+    + Attributes (Event)
+    
+    + Header
+
+             X-Time: 2014-09-11T17:02:27.761+02:00
+    
+    + Body 
+    
+
+            {
+                "sources": [
+                      {
+                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
+                        "name": "SMS"
+                      },
+                      {
+                        "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
+                        "name": "Email"
+                      },
+                      {
+                        "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
+                        "name": "CCTV dohled"
+                      },
+                      {
+                        "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
+                        "name": "Telefon"
+                      }
+                ]
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
 
 ## Event step collection [/tunnel/{tunnelId}/events/steps]
 ## Event document collection [/tunnel/{tunnelId}/events/documents]
