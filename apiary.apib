@@ -41,6 +41,21 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 ## Reports (object)
 + reports: [] (array[Report], required)
 
+## ReportParentType (object)
++ id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
++ code: "010" (string, required)
++ name: "Pořár" (string, required)
+
+## ReportType (object)
++ id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
++ code: "011" (string, required)
++ name: "Požár v tunelovém komplexu" (string, required)
++ priority: 99 (number, required)
+
+## ReportSource (object)
++ id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
++ name: "SMS" (string, required)
+
 ## SimpleEvent (object)
 + id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
 + title: "Požár v tunelu" (string, required)
@@ -52,7 +67,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 
 ## EventType (object)
 + code: "010" (string, required)
-+ description: "Zvýšení obsahu škodlivin v ovzduší nad kritický limit" (string, required)
++ name: "Zvýšení obsahu škodlivin v ovzduší nad kritický limit" (string, required)
 + priority: 99 (number, required)
 
 ## Owner (object)
@@ -869,7 +884,7 @@ The report resources can be used for managing reports.
 
 + Response 200 (application/json)
 
-    + Attributes (Event)
+    + Attributes (ReportParentType)
     
     + Header
 
@@ -919,7 +934,7 @@ The report resources can be used for managing reports.
 
 + Response 200 (application/json)
 
-    + Attributes (Event)
+    + Attributes (ReportType)
     
     + Header
 
@@ -933,12 +948,14 @@ The report resources can be used for managing reports.
                       {
                         "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
                         "code": "011",
-                        "name": "Požár v dopravním prostoru"
+                        "name": "Požár v dopravním prostoru",
+                        "priority": 5
                       },
                       {
                         "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
                         "code": "012",
-                        "name": "Požár v technologickém prostoru"
+                        "name": "Požár v technologickém prostoru",
+                        "priority": 1
                       }
                 ]
             }
@@ -968,7 +985,7 @@ The report resources can be used for managing reports.
 
 + Response 200 (application/json)
 
-    + Attributes (Event)
+    + Attributes (ReportSource)
     
     + Header
 
