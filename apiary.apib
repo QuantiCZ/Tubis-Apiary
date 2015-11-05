@@ -543,8 +543,8 @@ The event resources can be used for managing events.
                   "created": "2014-09-11T17:02:27.761+02:00",
                   "closed":  "2014-09-11T17:02:27.761+02:00",
                   "type": {
-                    "code": "010",
-                    "description": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit",
+                    "code": "011",
+                    "name": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit",
                     "priority": 6
                   },
                   "severity": {
@@ -626,8 +626,8 @@ The event resources can be used for managing events.
               "created": "2014-09-11T17:02:27.761+02:00",
               "closed":  "2014-09-11T17:02:27.761+02:00",
               "type": {
-                "code": "010",
-                "description": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit",
+                "code": "011",
+                "name": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit",
                 "priority": 6
               },
               "severity": {
@@ -675,158 +675,6 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-## Event types collection [/tunnel/{tunnelId}/events/types]
-
-+ Parameters
-    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
-
-### Get event types collection [GET]
------------
-**Returns all event types.**
-
-+ Request
-    + Header
-    
-            Content-Type: application/json
-            X-Api-Key: <your-private-token-key>
-
-+ Response 200 (application/json)
-
-    + Attributes (Event)
-    
-    + Header
-
-             X-Time: 2014-09-11T17:02:27.761+02:00
-    
-    + Body 
-    
-
-            {
-                "types": [
-                      {
-                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
-                        "code": "010",
-                        "name": "Požár v tunelu"
-                      },
-                      {
-                        "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
-                        "code": "020",
-                        "name": "Jiné nebezpečí"
-                      }
-                ]
-            }
-        
-+ Response 401
-+ Response 403
-+ Response 404
-+ Response 405
-+ Response 406
-+ Response 500
-+ Response 503
-
-## Event subjects collection [/tunnel/{tunnelId}/events/subjects]
-
-+ Parameters
-    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
-
-### Get event subjects collection [GET]
------------
-**Returns all event subjects.**
-
-+ Request
-    + Header
-    
-            Content-Type: application/json
-            X-Api-Key: <your-private-token-key>
-
-+ Response 200 (application/json)
-
-    + Attributes (Event)
-    
-    + Header
-
-             X-Time: 2014-09-11T17:02:27.761+02:00
-    
-    + Body 
-    
-
-            {
-                "subjects": [
-                      {
-                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
-                        "code": "011",
-                        "name": "Požár v dopravním prostoru"
-                      },
-                      {
-                        "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
-                        "code": "012",
-                        "name": "Požár v technologickém prostoru"
-                      }
-                ]
-            }
-        
-+ Response 401
-+ Response 403
-+ Response 404
-+ Response 405
-+ Response 406
-+ Response 500
-+ Response 503
-
-## Event sources collection [/tunnel/{tunnelId}/events/sources]
-
-+ Parameters
-    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
-
-### Get event sources collection [GET]
------------
-**Returns all event sources.**
-
-+ Request
-    + Header
-    
-            Content-Type: application/json
-            X-Api-Key: <your-private-token-key>
-
-+ Response 200 (application/json)
-
-    + Attributes (Event)
-    
-    + Header
-
-             X-Time: 2014-09-11T17:02:27.761+02:00
-    
-    + Body 
-    
-
-            {
-                "sources": [
-                      {
-                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
-                        "name": "SMS"
-                      },
-                      {
-                        "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
-                        "name": "Email"
-                      },
-                      {
-                        "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
-                        "name": "CCTV dohled"
-                      },
-                      {
-                        "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
-                        "name": "Telefon"
-                      }
-                ]
-            }
-        
-+ Response 401
-+ Response 403
-+ Response 404
-+ Response 405
-+ Response 406
-+ Response 500
-+ Response 503
 
 ## Event step collection [/tunnel/{tunnelId}/events/steps]
 ## Event document collection [/tunnel/{tunnelId}/events/documents]
@@ -848,6 +696,9 @@ The scheduler resources can be used for managing automatic schedule events.
 The report resources can be used for managing reports.
 
 ## Report collection [/tunnel/{tunnelId}/reports]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
 
 ### Get all reports [GET]
 -----------
@@ -941,6 +792,10 @@ The report resources can be used for managing reports.
 
 ## Single report [/tunnel/{tunnelId}/reports/{id}]
 
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + id (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `id`which can identify report.
+
 ### Get single reports [GET]
 -----------
 **Returns single report.**
@@ -986,6 +841,161 @@ The report resources can be used for managing reports.
                     "state": "CLOSED"
                 }
               ]
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+
+## Report parent types collection [/tunnel/{tunnelId}/reports/parent-types]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+
+### Get report parent types collection [GET]
+-----------
+**Returns all report parent types.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+
+    + Attributes (Event)
+    
+    + Header
+
+             X-Time: 2014-09-11T17:02:27.761+02:00
+    
+    + Body 
+    
+
+            {
+                "parentTypes": [
+                      {
+                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
+                        "code": "010",
+                        "name": "Požár v tunelu"
+                      },
+                      {
+                        "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
+                        "code": "020",
+                        "name": "Jiné nebezpečí"
+                      }
+                ]
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## Report types by parent type collection [/tunnel/{tunnelId}/reports/parent-types/{id}/types]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + id (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `id`which can identify report parent type.
+
+### Get report types collection by parent type id [GET]
+-----------
+**Returns all report types by parent type id.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+
+    + Attributes (Event)
+    
+    + Header
+
+             X-Time: 2014-09-11T17:02:27.761+02:00
+    
+    + Body 
+    
+
+            {
+                "types": [
+                      {
+                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
+                        "code": "011",
+                        "name": "Požár v dopravním prostoru"
+                      },
+                      {
+                        "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
+                        "code": "012",
+                        "name": "Požár v technologickém prostoru"
+                      }
+                ]
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## Report sources collection [/tunnel/{tunnelId}/reports/sources]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+
+### Get report sources collection [GET]
+-----------
+**Returns all report sources.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+
+    + Attributes (Event)
+    
+    + Header
+
+             X-Time: 2014-09-11T17:02:27.761+02:00
+    
+    + Body 
+    
+
+            {
+                "sources": [
+                      {
+                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
+                        "name": "SMS"
+                      },
+                      {
+                        "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
+                        "name": "Email"
+                      },
+                      {
+                        "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
+                        "name": "CCTV dohled"
+                      },
+                      {
+                        "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
+                        "name": "Telefon"
+                      }
+                ]
             }
         
 + Response 401
