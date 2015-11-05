@@ -41,6 +41,10 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 ## Reports (object)
 + reports: [] (array[Report], required)
 
+## ReportSeverity (object)
++ id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
++ name: "Běžná událost" (string, required)
+
 ## ReportParentType (object)
 + id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
 + code: "010" (string, required)
@@ -55,6 +59,10 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 ## ReportSource (object)
 + id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
 + name: "SMS" (string, required)
+
+## ReportStatus (object)
++ id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
++ status: "NEW" (string, required)
 
 ## SimpleEvent (object)
 + id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
@@ -123,7 +131,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 # Group Authentication resources
 The authentication resources can be used for **log in** and **log out** the user to the Tubis application.
 
-## Authentication [/tunnel/{tunnelId}/authentication]
+## Authentication [/tunnels/{tunnelId}/authentication]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
@@ -234,7 +242,7 @@ The authentication resources can be used for **log in** and **log out** the user
 # Group Role resources
 The role resources can be used for managing user roles.
 
-## Role collection [/tunnel/{tunnelId}/roles]
+## Role collection [/tunnels/{tunnelId}/roles]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
@@ -287,7 +295,7 @@ The role resources can be used for managing user roles.
 # Group User resources
 The user resources can be used for managing users.
 
-## User collection [/tunnel/{tunnelId}/users]
+## User collection [/tunnels/{tunnelId}/users]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
@@ -371,7 +379,7 @@ The user resources can be used for managing users.
     + Header
     
             X-Time: 2014-09-11T17:02:27.761+02:00
-            Location: /tunnel/{tunnelId}/users/{id}
+            Location: /tunnels/{tunnelId}/users/{id}
 + Response 401
 + Response 403
 + Response 404
@@ -380,7 +388,7 @@ The user resources can be used for managing users.
 + Response 500
 + Response 503
 
-## User [/tunnel/{tunnelId}/users/{id}]
+## User [/tunnels/{tunnelId}/users/{id}]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
@@ -486,7 +494,7 @@ The user resources can be used for managing users.
 + Response 500
 + Response 503
 
-## User password [/tunnel/{tunnelId}/users/{id}/password]
+## User password [/tunnels/{tunnelId}/users/{id}/password]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
@@ -527,7 +535,7 @@ The user resources can be used for managing users.
 # Group Event resources
 The event resources can be used for managing events.
 
-## Event collection [/tunnel/{tunnelId}/events]
+## Event collection [/tunnels/{tunnelId}/events]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
@@ -610,7 +618,7 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-## Single event [/tunnel/{tunnelId}/events/{id}]
+## Single event [/tunnels/{tunnelId}/events/{id}]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
@@ -692,26 +700,26 @@ The event resources can be used for managing events.
 + Response 503
 
 
-## Event step collection [/tunnel/{tunnelId}/events/steps]
-## Event document collection [/tunnel/{tunnelId}/events/documents]
+## Event step collection [/tunnels/{tunnelId}/events/steps]
+## Event document collection [/tunnels/{tunnelId}/events/documents]
 
 # Group Documents resources
 The documentation resources can be used for managing tunel information.
 
-## Document collection [/tunnel/{tunnelId}/documents]
-## Photo document collection [/tunnel/{tunnelId}/documents/photos]
-## Archive document collection [/tunnel/{tunnelId}/documents/archives]
-## Document collection [/tunnel/{tunnelId}/documents/schemas]
+## Document collection [/tunnels/{tunnelId}/documents]
+## Photo document collection [/tunnels/{tunnelId}/documents/photos]
+## Archive document collection [/tunnels/{tunnelId}/documents/archives]
+## Document collection [/tunnels/{tunnelId}/documents/schemas]
 
 # Group Schedulers resources
 The scheduler resources can be used for managing automatic schedule events.
 
-## Scheduler collection [/tunnel/{tunnelId}/schedulers]
+## Scheduler collection [/tunnels/{tunnelId}/schedulers]
 
 # Group Reports resources
 The report resources can be used for managing reports.
 
-## Report collection [/tunnel/{tunnelId}/reports]
+## Report collection [/tunnels/{tunnelId}/reports]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
@@ -806,7 +814,7 @@ The report resources can be used for managing reports.
 + Response 500
 + Response 503
 
-## Single report [/tunnel/{tunnelId}/reports/{id}]
+## Single report [/tunnels/{tunnelId}/reports/{id}]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
@@ -867,8 +875,54 @@ The report resources can be used for managing reports.
 + Response 500
 + Response 503
 
+## Report severities collection [/tunnels/{tunnelId}/reports/severities]
 
-## Report parent types collection [/tunnel/{tunnelId}/reports/parent-types]
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+
+### Get report severities collection [GET]
+-----------
+**Returns all report severities.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+
+    + Attributes (ReportSeverity)
+    
+    + Header
+
+             X-Time: 2014-09-11T17:02:27.761+02:00
+    
+    + Body 
+    
+
+            {
+                "severities": [
+                      {
+                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
+                        "name": "Běžná událost"
+                      },
+                      {
+                        "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
+                        "name": "Krizová situace"
+                      }
+                ]
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## Report parent types collection [/tunnels/{tunnelId}/reports/parent-types]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
@@ -917,7 +971,7 @@ The report resources can be used for managing reports.
 + Response 500
 + Response 503
 
-## Report types by parent type collection [/tunnel/{tunnelId}/reports/parent-types/{id}/types]
+## Report types by parent type collection [/tunnels/{tunnelId}/reports/parent-types/{id}/types]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
@@ -969,7 +1023,7 @@ The report resources can be used for managing reports.
 + Response 500
 + Response 503
 
-## Report sources collection [/tunnel/{tunnelId}/reports/sources]
+## Report sources collection [/tunnels/{tunnelId}/reports/sources]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
@@ -1012,6 +1066,53 @@ The report resources can be used for managing reports.
                       {
                         "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
                         "name": "Telefon"
+                      }
+                ]
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## Report statuses collection [/tunnels/{tunnelId}/reports/statuses]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+
+### Get report statuses collection [GET]
+-----------
+**Returns all report statuses.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+
+    + Attributes (ReportStatus)
+    
+    + Header
+
+             X-Time: 2014-09-11T17:02:27.761+02:00
+    
+    + Body 
+    
+
+            {
+                "statuses": [
+                      {
+                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
+                        "status": "NEW"
+                      },
+                      {
+                        "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
+                        "status": "SOLVED"
                       }
                 ]
             }
