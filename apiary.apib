@@ -814,6 +814,43 @@ The report resources can be used for managing reports.
 + Response 500
 + Response 503
 
+### Create report [POST]
+-----------
+**Creates report.**
+
++ Request
+    + Attributes (Report)
+    
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+    
+    + Body 
+    
+            {
+              "type": "021",
+              "note": "Kočička v šachtě",
+              "description":  "V šachte se vyskytla kočicka. Vydává dešsivé zvuky. Pravděpodobně v sekci C1",
+              "source": "PHONE",
+              "status": "DONE",
+              "priority": 1,
+              "created": "2014-10-20T17:11:27.761+02:00"
+            }
+            
++ Response 201 (application/json)
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+            Location: /tunnels/{tunnelId}/reports/{id}
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
 ## Single report [/tunnels/{tunnelId}/reports/{id}]
 
 + Parameters
