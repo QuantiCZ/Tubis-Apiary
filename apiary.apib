@@ -60,9 +60,9 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
 + name: "SMS" (string, required)
 
-## ReportStatus (object)
+## ReportState (object)
 + id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
-+ status: "NEW" (string, required)
++ state: "NEW" (string, required)
 
 ## SimpleEvent (object)
 + id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
@@ -721,11 +721,11 @@ The scheduler resources can be used for managing automatic schedule events.
 # Group Reports resources
 The report resources can be used for managing reports.
 
-## Report collection [/tunnels/{tunnelId}/reports/{?statuses}]
+## Report collection [/tunnels/{tunnelId}/reports/{?states}]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
-    + statuses (optional, string, `new`) .. String status which can filter reports.
+    + states (optional, string, `new`) .. String state which can filter reports.
 
 ### Get all reports [GET]
 -----------
@@ -761,7 +761,7 @@ The report resources can be used for managing reports.
                     "surname": "Tunelář"
                   },
                   "source": "PHONE",
-                  "status": "NEW",
+                  "state": "NEW",
                   "priority": 1,
                   "created": "2014-10-20T17:11:27.761+02:00",
                   "processed": "2015-10-20T17:11:27.761+02:00",
@@ -794,7 +794,7 @@ The report resources can be used for managing reports.
                     "surname": "Tunelář"
                   },
                   "source": "PHONE",
-                  "status": "NEW",
+                  "state": "NEW",
                   "priority": 1,
                   "created": "2014-10-20T17:11:27.761+02:00",
                   "processed": "2015-10-20T17:11:27.761+02:00",
@@ -841,7 +841,7 @@ The report resources can be used for managing reports.
               "note": "Kočička v šachtě",
               "description":  "V šachte se vyskytla kočicka. Vydává dešsivé zvuky. Pravděpodobně v sekci C1",
               "source": "PHONE",
-              "status": "DONE",
+              "state": "DONE",
               "priority": 1,
               "created": "2014-10-20T17:11:27.761+02:00"
             }
@@ -898,7 +898,7 @@ The report resources can be used for managing reports.
                 "surname": "Tunelář"
               },
               "source": "PHONE",
-              "status": "NEW",
+              "state": "NEW",
               "priority": 1,
               "created": "2014-10-20T17:11:27.761+02:00",
               "processed": "2015-10-20T17:11:27.761+02:00",
@@ -1127,14 +1127,14 @@ The report resources can be used for managing reports.
 + Response 500
 + Response 503
 
-## Report statuses collection [/tunnels/{tunnelId}/reports/statuses]
+## Report states collection [/tunnels/{tunnelId}/reports/states]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
 
-### Get report statuses collection [GET]
+### Get report states collection [GET]
 -----------
-**Returns all report statuses.**
+**Returns all report states.**
 
 + Request
     + Header
@@ -1144,7 +1144,7 @@ The report resources can be used for managing reports.
 
 + Response 200 (application/json)
 
-    + Attributes (ReportStatus)
+    + Attributes (ReportState)
     
     + Header
 
@@ -1154,14 +1154,14 @@ The report resources can be used for managing reports.
     
 
             {
-                "statuses": [
+                "states": [
                       {
                         "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
-                        "status": "NEW"
+                        "state": "NEW"
                       },
                       {
                         "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
-                        "status": "DONE"
+                        "state": "DONE"
                       }
                 ]
             }
