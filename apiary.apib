@@ -129,6 +129,34 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + events: [] (array[Event], required)
 
 
+## FileInfo (object)
++ key: "bf8f98b30d254efeae7ea5f3da0091af" (string, required)
++ contentType: "image/jpeg" (string, required)
++ fileName: "test,jpg" (string, required)
++ keyWords: "test" (string, optional)
++ created: "2015-11-05T18:44:00.0508545+01:00" (datetime, required)
++ changed: "2015-11-05T18:44:00.0508545+01:00" (datetime, required)
+
+## FileData (object)
++ key: "bf8f98b30d254efeae7ea5f3da0091af" (string, required)
++ contentType: "image/jpeg" (string, required)
++ fileName: "test,jpg" (string, required)
++ keyWords: "test" (string, optional)
++ created: "2015-11-05T18:44:00.0508545+01:00" (datetime, required)
++ changed: "2015-11-05T18:44:00.0508545+01:00" (datetime, required)
++ content: "/9j/4AAQSkZJRgAB ... X/2Q==" (string, required)
+
+## InsertFile (object)
++ contentType: "image/jpeg" (string, required)
++ fileName: "test,jpg" (string, required)
++ keyWords: "test" (string, optional)
+
+## UpdateFile (object)
++ key: "bf8f98b30d254efeae7ea5f3da0091af" (string, required)
++ contentType: "image/jpeg" (string, required)
++ fileName: "test,jpg" (string, required)
++ keyWords: "test" (string, optional)
+
 
 # Group Authentication resources
 The authentication resources can be used for **log in** and **log out** the user to the Tubis application.
@@ -705,13 +733,226 @@ The event resources can be used for managing events.
 ## Event step collection [/tunnels/{tunnelId}/events/steps]
 ## Event document collection [/tunnels/{tunnelId}/events/documents]
 
-# Group Documents resources
-The documentation resources can be used for managing tunel information.
 
-## Document collection [/tunnels/{tunnelId}/documents]
-## Photo document collection [/tunnels/{tunnelId}/documents/photos]
-## Archive document collection [/tunnels/{tunnelId}/documents/archives]
-## Document collection [/tunnels/{tunnelId}/documents/schemas]
+# Group Content Delivery Network
+The CDN resource should be used to store and manage all kind of document related to the tunnel application.
+
+## ContentTypes [/cdn/AllowedContentTypes]
+List of all supported content types
+
+### Get All supported content types [GET]
+------------
+**Returns dictionary with file extensions as keys and MIME types as values**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+
+        {
+            ".evy": "application/envoy",
+            ".fif": "application/fractals",
+            ".spl": "application/futuresplash",
+            ".hta": "application/hta",
+            ".acx": "application/internet-property-stream",
+            ".hqx": "application/mac-binhex40",
+            ".doc": "application/msword",
+            ".dot": "application/msword",
+            ".bin": "application/octet-stream"
+            ...
+        }
+
+## All files meta data [/cdn/FileInfos]
+Offers metadata to all file in cdn
+
+### Get all files meta data [GET]
+------------
+**Returns all files meta data**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+
+        [{
+            "key": "a2edfbad2c35479daf079ed508b0576f",
+            "contentType": "image/jpeg",
+            "fileName": "prostenazev.jpg",
+            "keyWords": "manual",
+            "created": "2015-11-06T12:33:58.0342335+01:00",
+            "changed": "2015-11-06T12:33:58.0342335+01:00"
+        }, {
+            "key": "1f85be86c15b44ffb3c3d210d4143be3",
+            "contentType": "image/jpeg",
+            "fileName": "obrazek.jpg",
+            "keyWords": "kniha",
+            "created": "2015-11-05T19:27:28.6821174+01:00",
+            "changed": "2015-11-05T19:27:28.6821174+01:00"
+        }]
+
+## File meta data [/cdn/FileInfo]
+Offers metadata about one file
+
+### Get file meta data [GET]
+------------
+**Returns file meta data**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+    
+    + Body
+
+            {
+                "Key": "BF8F98B3-0D25-4EFE-AE7E-A5F3DA0091AF"
+            }
+
++ Response 200 (application/json)
+
+        {
+            "key": "bf8f98b30d254efeae7ea5f3da0091af",
+            "contentType": "image/jpeg",
+            "fileName": "test,jpg",
+            "keyWords": "test",
+            "created": "2015-11-05T18:44:00.0508545+01:00",
+            "changed": "2015-11-05T18:44:00.0508545+01:00"
+        }
+
+## File [/cdn/File]
+File management
+
+### Get file complet data [GET]
+------------
+**Returns file meta data and content**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
+    + Body
+
+            "Key": "BF8F98B3-0D25-4EFE-AE7E-A5F3DA0091AF"
+
++ Response 200 (application/json)
+
+        {
+            "key": "bf8f98b30d254efeae7ea5f3da0091af",
+            "contentType": "image/jpeg",
+            "fileName": "test,jpg",
+            "keyWords": "test",
+            "created": "2015-11-05T18:44:00.0508545+01:00",
+            "changed": "2015-11-05T18:44:00.0508545+01:00",
+            "content": "/9j/4AAQSkZJRgAB ... X/2Q=="
+        }
+        
+### Insert new file [POST] 
+------------
+**Inserts new file into cdn and returns it's key. It's used first file in POSTed files**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
+    + Body
+
+            "ContentType": "image/jpeg",
+            "FileName": "prostenazev.jpg",
+            "KeyWords": "manual",
+            "File": [{"0":"qwweqeq...."}] ... in Request.Files[0]
+            
++ Response 200 (application/json)
+
+        "a2edfbad2c35479daf079ed508b0576f"
+        
+### Update file [PUT] 
+------------
+**Updates file on CDN - key required. It's used first file in POSTed files**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
+    + Body
+
+            "Key": "bf8f98b30d254efeae7ea5f3da0091af",
+            "ContentType": "image/jpeg",
+            "FileName": "prostenazev.jpg",
+            "KeyWords": "manual",
+            "File": [{"0":"qwweqeq...."}] ... in Request.Files[0]
+            
++ Response 200 (application/json)
+
+        "true"
+
+### Delete file [DELETE] 
+------------
+**Deletes file on CDN**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
+    + Body
+
+            "Key": "bf8f98b30d254efeae7ea5f3da0091af",
+
++ Response 200 (application/json)
+
+        "true"
+
+## Search in cdn meta data [/cdn/search]
+Tries to find text in cdn metadata
+
+### Search in cdn [GET]
+------------
+**Returns file meta data array (FileInfo). Or empty array in case of no result**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
+    + Body
+
+            {
+                "OnlyKeywords": "false",
+                "SearchFor": "jpg"
+            }
+
++ Response 200 (application/json)
+
+        [{
+            "key": "a2edfbad2c35479daf079ed508b0576f",
+            "contentType": "image/jpeg",
+            "fileName": "prostenazev.jpg",
+            "keyWords": "manual",
+            "created": "2015-11-06T12:33:58.0342335+01:00",
+            "changed": "2015-11-06T12:33:58.0342335+01:00"
+        }, {
+            "key": "bf8f98b30d254efeae7ea5f3da0091af",
+            "contentType": "image/jpeg",
+            "fileName": "test,jpg",
+            "keyWords": "manual",
+            "created": "2015-11-05T18:44:00.0508545+01:00",
+            "changed": "2015-11-05T18:44:00.0508545+01:00"
+        }]
 
 # Group Schedulers resources
 The scheduler resources can be used for managing automatic schedule events.
