@@ -721,10 +721,11 @@ The scheduler resources can be used for managing automatic schedule events.
 # Group Reports resources
 The report resources can be used for managing reports.
 
-## Report collection [/tunnels/{tunnelId}/reports]
+## Report collection [/tunnels/{tunnelId}/reports/{?statuses}]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + statuses (optional, string, `new`) .. String status which can filter reports.
 
 ### Get all reports [GET]
 -----------
