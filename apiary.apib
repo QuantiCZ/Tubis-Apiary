@@ -737,9 +737,9 @@ The event resources can be used for managing events.
     + eventId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `eventId`which can identify event.
     + stepId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `stepId`which can identify step event.
 
-### Get single event [GET]
+### Get single event step [GET]
 -----------
-**Returns single event.**
+**Returns single event step.**
 
 + Request
     + Header
@@ -784,7 +784,7 @@ The event resources can be used for managing events.
 
 ### Upload event step attachment [POST]
 -----------
-**Returns single event.**
+**Returns single event step attachment.**
 
 + Request
     + Header
@@ -809,6 +809,33 @@ The event resources can be used for managing events.
                 "content": "/9j/4AAQSkZJRgAB ... X/2Q=="
             }
         
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## Event attachments [/tunnels/{tunnelId}/events/{eventId}/steps/{stepId}/attachments/{fileId}]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + eventId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `eventId`which can identify event.
+    + stepId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `stepId`which can identify step event.
+    + fileId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `fileId`which can identify file.
+
+### Delete step attachment [DELETE]
+-----------
+**Delete single event step attachment.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 204
 + Response 401
 + Response 403
 + Response 404
