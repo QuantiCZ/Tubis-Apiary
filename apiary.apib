@@ -682,6 +682,9 @@ The event resources can be used for managing events.
 
             {
               "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
+              "title": "Prasklé potrubí",
+              "location": "Potrubí",
+              "source": "KERBERUS",
               "created": "2014-09-11T17:02:27.761+02:00",
               "closed":  "2014-09-11T17:02:27.761+02:00",
               "type": {
@@ -726,6 +729,33 @@ The event resources can be used for managing events.
               "reports": [1,3,4]
             }
         
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+### Update single event [PUT]
+-----------
+**Update single event.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
+    + Body 
+    
+            {
+                  "location": "Potrubí",
+                  "source": "CCTV",
+                  "title": "Prasklé potrubí"
+            }
+
++ Response 204 (application/json)
 + Response 401
 + Response 403
 + Response 404
