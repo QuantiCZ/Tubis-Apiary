@@ -814,14 +814,6 @@ The event resources can be used for managing events.
             Content-Type: application/json
             X-Api-Key: <your-private-token-key>
 
-    + Body 
-    
-            {
-                "contentType": "image/jpeg",
-                "fileName": "test,jpg",
-                "content": "/9j/4AAQSkZJRgAB ... X/2Q=="
-            }
-
 + Response 204 
 + Response 401
 + Response 403
@@ -906,9 +898,9 @@ The event resources can be used for managing events.
     
 
             {
-                "contentType": "image/jpeg",
-                "fileName": "test,jpg",
-                "content": "/9j/4AAQSkZJRgAB ... X/2Q=="
+                "content": "data:application/pdf;base64,JVBERi0x....LjQKJ0YK="
+                "contentType": "application/pdf"
+                "filename": "informace.pdf"
             }
         
 + Response 401
