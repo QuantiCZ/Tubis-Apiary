@@ -764,6 +764,74 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
+## Event attachments [/tunnels/{tunnelId}/events/{eventId}/attachments]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + eventId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `eventId`which can identify event.
+    
+### Get single event step [POST]
+-----------
+**Create event attachment.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
+    + Body 
+    
+            {
+                "contentType": "image/jpeg",
+                "fileName": "test,jpg",
+                "content": "/9j/4AAQSkZJRgAB ... X/2Q=="
+            }
+
++ Response 204 
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## Event attachment [/tunnels/{tunnelId}/events/{eventId}/attachments/{fileId}]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + eventId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `eventId`which can identify event.
+    + fileId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `fileId`which can identify file.
+    
+### Get single event step [DELETE]
+-----------
+**Create event attachment.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
+    + Body 
+    
+            {
+                "contentType": "image/jpeg",
+                "fileName": "test,jpg",
+                "content": "/9j/4AAQSkZJRgAB ... X/2Q=="
+            }
+
++ Response 204 
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+
 ## Single step [/tunnels/{tunnelId}/events/{eventId}/steps/{stepId}]
 
 + Parameters
@@ -809,7 +877,7 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-## Event attachments [/tunnels/{tunnelId}/events/{eventId}/steps/{stepId}/attachments]
+## Event step attachments [/tunnels/{tunnelId}/events/{eventId}/steps/{stepId}/attachments]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
@@ -851,7 +919,7 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-## Event attachments [/tunnels/{tunnelId}/events/{eventId}/steps/{stepId}/attachments/{fileId}]
+## Single event step attachment [/tunnels/{tunnelId}/events/{eventId}/steps/{stepId}/attachments/{fileId}]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
