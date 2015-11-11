@@ -123,6 +123,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 ## EventStep (object) 
 + id: "e27164e8-f8cd-47df-a5af-1c121e9aa94a" (string, required)
 + position: 1 (number, required)
++ slot: 1 (number, required)
 + comment: "Nepodařilo se dovolat" (string, optional)
 + description: "Zavolej na PČR" (string, required)
 + closed: "2014-09-11T17:02:27.761+02:00" (string, required)
@@ -615,31 +616,6 @@ The event resources can be used for managing events.
                     "forename": "Jan",
                     "surname": "Dlaždička"
                   },
-                  "steps": {
-                    "technology" : [
-                      {
-                        "id": 1,
-                        "position": 1,
-                        "comment": "Nepodařilo se dovolat",
-                        "description": "Zavolej na PČR",
-                        "closed": "2014-09-11T17:02:27.761+02:00",
-                        "attachments": []
-                      }
-                    ],
-                    "traffic" : [
-                      {
-                        "id": 1,
-                        "position": 1,
-                        "comment": "Nepodařilo se dovolat",
-                        "description": "Zavolej na PČR",
-                        "closed": "2014-09-11T17:02:27.761+02:00",
-                        "attachments": []
-                      }
-                    ],
-                    "other" : [
-                      
-                    ]
-                  },
                   "reports": [1,3,4]
                 }
               ]
@@ -855,6 +831,7 @@ The event resources can be used for managing events.
             {
                 "id": 1,
                 "position": 1,
+                "slot": 1,
                 "comment": "Nepodařilo se dovolat",
                 "description": "Zavolej na PČR",
                 "closed": "2014-09-11T17:02:27.761+02:00",
