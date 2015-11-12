@@ -746,6 +746,48 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
+## Event lock [/tunnels/{tunnelId}/events/{id}/lock]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + id (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `id`which can identify event.
+
+### Create or refresh event lock [PUT]
+
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 204 
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+### Delete event lock [DELETE]
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 204 
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+
 ## Event attachments [/tunnels/{tunnelId}/events/{eventId}/attachments]
 
 + Parameters
@@ -844,6 +886,47 @@ The event resources can be used for managing events.
                 "attachments": []
             }
         
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## Event step lock [/tunnels/{tunnelId}/events/{eventId}/steps/{stepId}/lock]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + eventId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `eventId`which can identify event.
+    + stepId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `stepId`which can identify step event.
+
+### Create or refresh event step lock [PUT]
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 204
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+### Delete event step lock [DELETE]
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 204
 + Response 401
 + Response 403
 + Response 404
