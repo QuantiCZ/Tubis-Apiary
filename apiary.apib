@@ -1439,6 +1439,32 @@ The report resources can be used for managing reports.
 + Response 500
 + Response 503
 
+## Report single event [/tunnels/{tunnelId}/reports/{id}/events/{eventId}]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + id (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `id`which can identify report.
+    + eventId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `eventId`which can identify event.
+
+### Assign report to event [PUT]
+-----------
+**Returns single report.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 204
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
 ## Report severities collection [/tunnels/{tunnelId}/reports/severities]
 
 + Parameters
