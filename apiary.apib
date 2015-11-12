@@ -36,7 +36,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + description: Car stops in tunnel (string, required)
 + created: "2014-09-11T17:02:27.761+02:00" (string, required)
 + processed: "2014-09-11T17:02:27.761+02:00" (string, required)
-+ operator: 45 (number, optional)
++ author: {} (Author, optional)
 + type: {} (ReportType, optional)
 + parentType: {} (ReportParentType, required)
 + events: [] (array[SimpleEvent], optional)
@@ -81,10 +81,14 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + name: "Zvýšení obsahu škodlivin v ovzduší nad kritický limit" (string, required)
 + priority: 99 (number, required)
 
-## Owner (object)
-+ id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
+## Author (object)
 + forename: "Jan" (string, required)
 + surname: "Dlaždička" (string, required)
+
+## Owner (object)
++ forename: "Jan" (string, required)
++ surname: "Dlaždička" (string, required)
++ locked: false (boolean, required)
 
 ## Event (object)
 + id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
@@ -97,6 +101,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + type: {} (EventType, required)
 + severity: {} (Severity, required)
 + owner: {} (Owner, required)
++ author: {} (Author, required)
 + comment: "Nahlášeno z více zdrojů" (string, required)
 + reports: ["125f9669-af7a-4eeb-b7e5-7f1d7286e195", "e27164e8-f8cd-47df-a5af-1c121e9aa94a"] (array[string], required)
 + steps: {} (EventSteps, required)
