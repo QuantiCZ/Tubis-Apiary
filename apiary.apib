@@ -948,6 +948,32 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
+## Event step lock [/tunnels/{tunnelId}/events/{eventId}/steps/{stepId}/closed]
+
+**This resource will also setup started on the step, if is not setup. It will update closed attribute everytime**
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + eventId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `eventId`which can identify event.
+    + stepId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `stepId`which can identify step event.
+
+### Close step [PUT]
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 204
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
 ## Event step lock [/tunnels/{tunnelId}/events/{eventId}/steps/{stepId}/lock]
 
 **This resource will also setup started on the step, if is not setup.**
@@ -973,6 +999,8 @@ The event resources can be used for managing events.
 + Response 406
 + Response 500
 + Response 503
+
+
 
 ### Delete event step lock [DELETE]
 
