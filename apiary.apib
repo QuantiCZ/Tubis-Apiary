@@ -1216,7 +1216,7 @@ File management
         
 ### Insert new file [POST] 
 ------------
-**Inserts new file into cdn and returns it's key. It's used first file in POSTed files**
+**Inserts new file into cdn and returns it's key. Content is base64 encoded, "data:..." is neither needed, neither required**
 
 + Request
     + Header
@@ -1237,7 +1237,7 @@ File management
         
 ### Update file [PUT] 
 ------------
-**Updates file on CDN - key required. It's used first file in POSTed files**
+**Updates file on CDN - key required. Content is base64 encoded, "data:..." is neither needed, neither required**
 
 + Request
     + Header
