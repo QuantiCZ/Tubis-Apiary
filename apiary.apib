@@ -1285,6 +1285,28 @@ Tries to find text in cdn metadata
             "changed": "2015-11-05T18:44:00.0508545+01:00"
         }]
 
+## File URL [/cdn/FileUrl]
+Returns file url
+
+### Get file's URL [GET]
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+    
+    + Body
+
+            {
+                "Key": "BF8F98B3-0D25-4EFE-AE7E-A5F3DA0091AF"
+            }
+
++ Response 200 (application/text)
+
+        http://localhost:8081/bf8f98b30d254efeae7ea5f3da0091af/test.jpg
+
+
 # Group Schedulers resources
 The scheduler resources can be used for managing automatic schedule events.
 
