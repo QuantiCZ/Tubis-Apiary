@@ -1177,13 +1177,13 @@ File management
 + Response 200 (application/json)
 
         {
-            "key": "bf8f98b30d254efeae7ea5f3da0091af",
-            "contentType": "image/jpeg",
-            "fileName": "test,jpg",
-            "keyWords": "test",
-            "created": "2015-11-05T18:44:00.0508545+01:00",
-            "changed": "2015-11-05T18:44:00.0508545+01:00",
-            "content": "/9j/4AAQSkZJRgAB ... X/2Q=="
+            "Key": "bf8f98b30d254efeae7ea5f3da0091af",
+            "ContentType": "image/jpeg",
+            "FileName": "test,jpg",
+            "KeyWords": "test",
+            "Created": "2015-11-05T18:44:00.0508545+01:00",
+            "Changed": "2015-11-05T18:44:00.0508545+01:00",
+            "Content": "/9j/4AAQSkZJRgAB ... X/2Q=="
         }
         
 ### Insert new file [POST] 
@@ -1201,7 +1201,7 @@ File management
             "ContentType": "image/jpeg",
             "FileName": "prostenazev.jpg",
             "KeyWords": "manual",
-            "File": [{"0":"qwweqeq...."}] ... in Request.Files[0]
+            "Content": "data:image/png;base64,iVBORw0KGgoAAA...",
             
 + Response 200 (application/json)
 
@@ -1223,7 +1223,7 @@ File management
             "ContentType": "image/jpeg",
             "FileName": "prostenazev.jpg",
             "KeyWords": "manual",
-            "File": [{"0":"qwweqeq...."}] ... in Request.Files[0]
+            "Content": "data:image/png;base64,iVBORw0KGgoAAA...",
             
 + Response 200 (application/json)
 
