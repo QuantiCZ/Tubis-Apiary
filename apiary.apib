@@ -97,6 +97,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + closed: "2014-09-11T17:02:27.761+02:00" (string, required)
 + state: "NEW" (string, required)
 + source: "KERBERUS" (string, required)
++ form: {} (Form, required)
 + location: "Sektor C1" (string, optional)
 + type: {} (EventType, required)
 + severity: {} (Severity, required)
@@ -169,6 +170,21 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + fileName: "test,jpg" (string, required)
 + keyWords: "test" (string, optional)
 
+## Form (object)
++ blueprint: {} (FormBlueprint, required)
+
+## FormBlueprint (object)
++ inputs: [] (array[FormInput], required)
+
+## FormInput (object)
++ label: "test,jpg" (string, required)
++ name: "confirmed" (string, required)
++ type: "checkbox" (string, required)
++ options: [] (array[InputOptions], optional)
+
+## InputOptions (object)
++ value: "1" (string, required)
++ label: "Number" (string, required)
 
 # Group Authentication resources
 The authentication resources can be used for **log in** and **log out** the user to the Tubis application.
