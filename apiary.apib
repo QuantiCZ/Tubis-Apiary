@@ -174,6 +174,11 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + blueprint: {} (FormBlueprint, required)
 
 ## FormBlueprint (object)
++ groups: [] (array[FormGroup], required)
+
+## FormGroup (object)
++ label: "test,jpg" (string, required)
++ name: "confirmed" (string, required)
 + inputs: [] (array[FormInput], required)
 
 ## FormInput (object)
@@ -702,56 +707,114 @@ The event resources can be used for managing events.
               },
               "form": {
                 "blueprint": {
-                    "inputs": [
-                          {
-                            "label": "Vytvořeno",
-                            "name": "created",
-                            "type": "text",
-                            "placeholder": "tohle je text"
-                          },
-                          {
-                            "label": "Uzavřeno",
-                            "name": "closed",
-                            "type": "radio"
-                          },
-                          {
-                            "label": "Komentář",
-                            "name": "comment",
-                            "type": "datetime"
-                          },
-                          {
-                            "label": "Výběr",
-                            "name": "selection",
-                            "type": "select",
-                            "options": [
-                              {
-                                "value": 1,
-                                "label": "test1"
-                              },
-                              {
-                                "value": 2,
-                                "label": "test2"
-                              }
-                            ]
-                          },
-                          {
-                            "label": "Výběr 2",
-                            "name": "asdd",
-                            "type": "radiolist",
-                            "options": [
-                              {
-                                "value": 1,
-                                "label": "test1"
-                              },
-                              {
-                                "value": 2,
-                                "label": "test2"
-                              }
-                            ]
-                          }
-                        ]
+                  "groups": [
+                    {
+                      "label": "Průběh řešení události",
+                      "name": "ts1",
+                      "inputs": [
+                        {
+                          "label": "Vytvořeno",
+                          "name": "created",
+                          "type": "text",
+                          "placeholder": "tohle je text"
+                        },
+                        {
+                          "label": "Uzavřeno",
+                          "name": "closed",
+                          "type": "radio"
+                        },
+                        {
+                          "label": "Komentář",
+                          "name": "comment",
+                          "type": "datetime"
+                        },
+                        {
+                          "label": "Výběr",
+                          "name": "selection",
+                          "type": "select",
+                          "options": [
+                            {
+                              "value": 1,
+                              "label": "test1"
+                            },
+                            {
+                              "value": 2,
+                              "label": "test2"
+                            }
+                          ]
+                        },
+                        {
+                          "label": "Výběr 2",
+                          "name": "asdd",
+                          "type": "radiolist",
+                          "options": [
+                            {
+                              "value": 1,
+                              "label": "test1"
+                            },
+                            {
+                              "value": 2,
+                              "label": "test2"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "label": "Průběh řešení události 2",
+                      "name": "ts2",
+                      "inputs": [
+                        {
+                          "label": "Vytvořeno",
+                          "name": "created",
+                          "type": "text",
+                          "placeholder": "tohle je text"
+                        },
+                        {
+                          "label": "Uzavřeno",
+                          "name": "closed",
+                          "type": "radio"
+                        },
+                        {
+                          "label": "Komentář",
+                          "name": "comment",
+                          "type": "datetime"
+                        },
+                        {
+                          "label": "Výběr",
+                          "name": "selection",
+                          "type": "select",
+                          "options": [
+                            {
+                              "value": 1,
+                              "label": "test1"
+                            },
+                            {
+                              "value": 2,
+                              "label": "test2"
+                            }
+                          ]
+                        },
+                        {
+                          "label": "Výběr 2",
+                          "name": "asdd",
+                          "type": "radiolist",
+                          "options": [
+                            {
+                              "value": 1,
+                              "label": "test1"
+                            },
+                            {
+                              "value": 2,
+                              "label": "test2"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
-              },
+              }
               "steps": {
                 "technology" : [
                   {
