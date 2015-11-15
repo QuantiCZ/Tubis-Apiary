@@ -738,7 +738,10 @@ The event resources can be used for managing events.
                   "title": "Prasklé potrubí"
             }
 
-+ Response 204 (application/json)
++ Response 204
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
 + Response 401
 + Response 403
 + Response 404
@@ -759,7 +762,10 @@ The event resources can be used for managing events.
             Content-Type: application/json
             X-Api-Key: <your-private-token-key>
 
-+ Response 204 (application/json)
++ Response 204
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
 + Response 401
 + Response 403
 + Response 404
@@ -767,6 +773,68 @@ The event resources can be used for managing events.
 + Response 406
 + Response 500
 + Response 503
+
+## Event lock [/tunnels/{tunnelId}/events/{id}/locks]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + id (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `id`which can identify event.
+
+### Get locked events [GET]
+
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json) 
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+    + Body
+    
+            {
+                "events": [
+                    {
+                      "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
+                      "title": "Prasklé potrubí",
+                      "location": "Potrubí",
+                      "source": "KERBERUS",
+                      "priority": 6,
+                      "created": "2014-09-11T17:02:27.761+02:00",
+                      "type": {
+                        "code": "011",
+                        "name": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit"
+                      },
+                      "severity": {
+                        "id": "1",
+                        "name": "běžná událost BU"
+                      },
+                      "owner": {
+                        "id": 1,
+                        "forename": "Jan",
+                        "surname": "Dlaždička"
+                      },
+                      "lockOwner": {
+                        "id": 1,
+                        "forename": "Jan",
+                        "surname": "Dlaždička",
+                        "created": "2014-09-11T17:02:27.761+02:00"
+                       }
+                    }
+                ]
+            }
+
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
 
 ## Event lock [/tunnels/{tunnelId}/events/{id}/lock]
 
@@ -784,6 +852,9 @@ The event resources can be used for managing events.
             X-Api-Key: <your-private-token-key>
 
 + Response 204 
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
 + Response 401
 + Response 403
 + Response 404
@@ -801,6 +872,9 @@ The event resources can be used for managing events.
             X-Api-Key: <your-private-token-key>
 
 + Response 204 
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
 + Response 401
 + Response 403
 + Response 404
@@ -835,6 +909,9 @@ The event resources can be used for managing events.
             }
 
 + Response 204 
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
 + Response 401
 + Response 403
 + Response 404
@@ -861,6 +938,9 @@ The event resources can be used for managing events.
             X-Api-Key: <your-private-token-key>
 
 + Response 204 
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
 + Response 401
 + Response 403
 + Response 404
@@ -967,6 +1047,106 @@ The event resources can be used for managing events.
             X-Api-Key: <your-private-token-key>
 
 + Response 204
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## Event step lock [/tunnels/{tunnelId}/events/{eventId}/steps/locks]
+
+**This resource will also setup started on the step, if is not setup.**
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + eventId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `eventId`which can identify event.
+
+### Get event steps locks [GET]
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+    + Body
+    
+            {
+                "events": [
+                     {
+                      "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
+                      "title": "Prasklé potrubí",
+                      "location": "Potrubí",
+                      "source": "KERBERUS",
+                      "priority": 6,
+                      "created": "2014-09-11T17:02:27.761+02:00",
+                      "type": {
+                        "code": "011",
+                        "name": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit"
+                      },
+                      "severity": {
+                        "id": "1",
+                        "name": "běžná událost BU"
+                      },
+                      "owner": {
+                        "id": 1,
+                        "forename": "Jan",
+                        "surname": "Dlaždička"
+                      },
+                      "steps": {
+                        "technology" : [
+                          {
+                            "id": 1,
+                            "position": 1,
+                            "comment": "Nepodařilo se dovolat",
+                            "description": "Zavolej na PČR",
+                            "lockOwner": {
+                                "id": 1,
+                                "forename": "Jan",
+                                "surname": "Dlaždička",
+                                "created": "2014-09-11T17:02:27.761+02:00"
+                           }
+                          },
+                          {
+                            "id": 2,
+                            "position": 4,
+                            "comment": "",
+                            "description": "Zavolej na dispecerovi",
+                            "lockOwner": {
+                                "id": 5,
+                                "forename": "Tomas",
+                                "surname": "Marny",
+                                "created": "2014-09-11T17:02:27.761+02:00"
+                           }
+                          }
+                        ],
+                        "traffic" : [
+                          {
+                            "id": 1,
+                            "position": 1,
+                            "comment": "Nepodařilo se dovolat",
+                            "description": "Zavolej na PČR",
+                            "lockOwner": {
+                                "id": 3,
+                                "forename": "Pepa",
+                                "surname": "Z depa",
+                                "created": "2015-10-12T18:02:24.047+0:00"
+                           }
+                          }
+                        ]
+                      }
+                    }
+                ]
+            }
 + Response 401
 + Response 403
 + Response 404
@@ -993,6 +1173,9 @@ The event resources can be used for managing events.
             X-Api-Key: <your-private-token-key>
 
 + Response 204
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
 + Response 401
 + Response 403
 + Response 404
