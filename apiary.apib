@@ -150,6 +150,18 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + contacts: [] (array[Contact], required)
 + documents: [] (array[Attachment], required)
 
+## EventFormLock (object)
++ id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
++ title: "Požár" (string, required)
++ created: "2014-09-11T17:02:27.761+02:00" (string, required)
++ state: "NEW" (string, required)
++ source: "KERBERUS" (string, required)
++ location: "Sektor C1" (string, optional)
++ type: {} (EventType, required)
++ severity: {} (Severity, required)
++ author: {} (Author, required)
++ form: [] (Form, required)
+
 ## EventStepLock (object)
 + id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
 + title: "Požár" (string, required)
@@ -202,6 +214,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + keyWords: "test" (string, optional)
 
 ## Form (object)
++ owner: {} (Owner, optional)
 + blueprint: {} (FormBlueprint, required)
 
 ## FormBlueprint (object)
@@ -670,7 +683,7 @@ The event resources can be used for managing events.
                     "id": "1",
                     "name": "běžná událost BU"
                   },
-                  "owner": {
+                  "author": {
                     "id": 1,
                     "forename": "Jan",
                     "surname": "Dlaždička"
@@ -885,12 +898,19 @@ The event resources can be used for managing events.
                 "id": "1",
                 "name": "běžná událost BU"
               },
-              "owner": {
+              "author": {
                 "id": 1,
                 "forename": "Jan",
                 "surname": "Dlaždička"
               },
               "form": {
+                "owner": {
+                    "id": 3,
+                    "forename": "Pepa",
+                    "surname": "Z depa",
+                    "locked": true,
+                    "created": "2015-10-12T18:02:24.047+0:00"
+                },
                 "blueprint": {
                   "groups": [
                     {
