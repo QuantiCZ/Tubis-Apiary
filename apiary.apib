@@ -226,6 +226,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + inputs: [] (array[FormInput], required)
 
 ## FormInput (object)
++ order: 1 (number, optional)
 + label: "test,jpg" (string, required)
 + name: "confirmed" (string, required)
 + type: "checkbox" (string, required)
@@ -990,22 +991,26 @@ The event resources can be used for managing events.
                       "name": "ts1",
                       "inputs": [
                         {
+                          "order": 1,
                           "label": "Vytvořeno",
                           "name": "created",
                           "type": "text",
                           "placeholder": "tohle je text"
                         },
                         {
+                          "order": 2,
                           "label": "Uzavřeno",
                           "name": "closed",
                           "type": "radio"
                         },
                         {
+                          "order": 4,
                           "label": "Komentář",
                           "name": "comment",
                           "type": "datetime"
                         },
                         {
+                          "order": 5,
                           "label": "Výběr",
                           "name": "selection",
                           "type": "select",
@@ -1021,6 +1026,7 @@ The event resources can be used for managing events.
                           ]
                         },
                         {
+                          "order": 3,
                           "label": "Výběr 2",
                           "name": "asdd",
                           "type": "radiolist",
