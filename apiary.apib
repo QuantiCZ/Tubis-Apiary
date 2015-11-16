@@ -844,7 +844,7 @@ The event resources can be used for managing events.
             X-Api-Key: <your-private-token-key>
 
 + Response 200 (application/json)
-    + Attributes (EventStepLock)
+    + Attributes (EventLock)
     
     + Header
     
@@ -868,7 +868,8 @@ The event resources can be used for managing events.
                         "id": "1",
                         "name": "běžná událost BU"
                       },
-                      "steps": [
+                      "steps": {
+                        "technology": [
                           {
                             "id": 1,
                             "position": 1,
@@ -896,7 +897,9 @@ The event resources can be used for managing events.
                                 "locked": true,
                                 "created": "2014-09-11T17:02:27.761+02:00"
                             }
-                          },
+                          }
+                        ],
+                        "traffic": [
                           {
                             "id": 3,
                             "position": 1,
@@ -911,7 +914,8 @@ The event resources can be used for managing events.
                                 "created": "2015-10-12T18:02:24.047+0:00"
                             }
                           }
-                      ]
+                        ]
+                      }
                     }
                 ]
             }
