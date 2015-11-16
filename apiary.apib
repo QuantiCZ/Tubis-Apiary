@@ -701,7 +701,7 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-## Events lock [/tunnels/{tunnelId}/events/?locked=true]
+## Events lock [/tunnels/{tunnelId}/events?locked=true]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
@@ -762,7 +762,69 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-## Events steps lock [/tunnels/{tunnelId}/events/steps/?locked=true]
+## Events form lock [/tunnels/{tunnelId}/events/form?locked=true]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+
+### Get locked events [GET]
+
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json) 
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+    + Body
+    
+            {
+                "events": [
+                    {
+                      "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
+                      "title": "Prasklé potrubí",
+                      "location": "Potrubí",
+                      "source": "KERBERUS",
+                      "priority": 6,
+                      "created": "2014-09-11T17:02:27.761+02:00",
+                      "type": {
+                        "code": "011",
+                        "name": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit"
+                      },
+                      "severity": {
+                        "id": "1",
+                        "name": "běžná událost BU"
+                      },
+                      "author": {
+                        "id": 1,
+                        "forename": "Jan",
+                        "surname": "Dlaždička"
+                      },
+                      "form": {
+                        "owner": {
+                            "id": 3,
+                            "forename": "Pepa",
+                            "surname": "Z depa",
+                            "locked": true,
+                            "created": "2015-10-12T18:02:24.047+0:00"
+                        }
+                    }
+                ]
+            }
+
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## Events steps lock [/tunnels/{tunnelId}/events/steps?locked=true]
 
 **This resource will also setup started on the step, if is not setup.**
 
