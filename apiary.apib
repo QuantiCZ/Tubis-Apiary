@@ -86,6 +86,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + surname: "Dlaždička" (string, required)
 
 ## Owner (object)
++ locked: true (string, required) - This is set to false for person who locked the event/step/form.
 + forename: "Jan" (string, required)
 + surname: "Dlaždička" (string, required)
 + created: "2014-09-11T17:02:27.761+02:00" (string, required)
@@ -747,6 +748,7 @@ The event resources can be used for managing events.
                       },
                       "owner": {
                         "id": 1,
+                        "locked": true,
                         "forename": "Jan",
                         "surname": "Dlaždička",
                         "created": "2014-09-11T17:02:27.761+02:00"
@@ -810,6 +812,7 @@ The event resources can be used for managing events.
                       "form": {
                         "owner": {
                             "id": 3,
+                            "locked": true,
                             "forename": "Pepa",
                             "surname": "Z depa",
                             "created": "2015-10-12T18:02:24.047+0:00"
@@ -876,6 +879,7 @@ The event resources can be used for managing events.
                             "description": "Zavolej na PČR",
                             "owner": {
                                 "id": 1,
+                                "locked": true,
                                 "forename": "Jan",
                                 "surname": "Dlaždička",
                                 "created": "2014-09-11T17:02:27.761+02:00"
@@ -889,6 +893,7 @@ The event resources can be used for managing events.
                             "description": "Zavolej na dispecerovi",
                             "owner": {
                                 "id": 5,
+                                "locked": false,
                                 "forename": "Tomas",
                                 "surname": "Marny",
                                 "created": "2014-09-11T17:02:27.761+02:00"
@@ -904,6 +909,7 @@ The event resources can be used for managing events.
                             "description": "Zavolej na PČR",
                             "owner": {
                                 "id": 3,
+                                "locked": true,
                                 "forename": "Pepa",
                                 "surname": "Z depa",
                                 "created": "2015-10-12T18:02:24.047+0:00"
@@ -973,6 +979,7 @@ The event resources can be used for managing events.
               "form": {
                 "owner": {
                     "id": 3,
+                    "locked": true,
                     "forename": "Pepa",
                     "surname": "Z depa",
                     "created": "2015-10-12T18:02:24.047+0:00"
