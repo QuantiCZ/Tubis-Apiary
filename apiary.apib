@@ -216,6 +216,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 ## Form (object)
 + owner: {} (Owner, optional)
 + blueprint: {} (FormBlueprint, required)
++ data: {} (object, optional) - keys are FormGroup names and values are object with keys FormInput names and values
 
 ## FormBlueprint (object)
 + groups: [] (array[FormGroup], required)
@@ -983,6 +984,16 @@ The event resources can be used for managing events.
                     "forename": "Pepa",
                     "surname": "Z depa",
                     "created": "2015-10-12T18:02:24.047+0:00"
+                },
+                "data": {
+                    "default": {
+                        "created": "2015-10-12T18:02:24.047+0:00",
+                        "text": "Vuz prijel pozde"
+                    }
+                    "group1": {
+                        "input2": "2015-10-12T18:02:24.047+0:00",
+                        "text2": "Vuz prijel pozde"
+                    }
                 },
                 "blueprint": {
                   "groups": [
