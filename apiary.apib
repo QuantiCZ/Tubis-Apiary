@@ -1247,6 +1247,46 @@ The event resources can be used for managing events.
 + Response 503
 
 
+## Update event form data [/tunnels/{tunnelId}/events/{id}/form/data]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + id (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `id`which can identify event.
+
+### Update form data [PUT]
+
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
+    + Body
+    
+            {
+                "default": {
+                    "created": "2015-10-12T18:02:24.047+0:00",
+                    "text": "Vuz prijel pozde"
+                }
+                "group1": {
+                    "input2": "2015-10-12T18:02:24.047+0:00",
+                    "text2": "Vuz prijel pozde"
+                }
+            }
+
++ Response 204 
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
 ## Event form lock [/tunnels/{tunnelId}/events/{id}/form/lock]
 
 + Parameters
