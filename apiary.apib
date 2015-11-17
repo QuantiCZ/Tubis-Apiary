@@ -128,6 +128,11 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + phone: "+420777888999" (string, optional)
 + email: "pmc1@praha.cz" (string, optional)
 
+## AttachmentData (object)
++ content: "data:image/png;base64,iVBORw0KGgoAAA..." (string, required)
++ contentType: "image/jpeg" (string, required)
++ filename: "Photo.jpg" (string, required)
+
 ## Attachment (object)
 + id: 1 (number, required)
 + link: "http://tubis/api/v1/attachmens/1" (string, required)
@@ -216,22 +221,33 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 ## Form (object)
 + owner: {} (Owner, optional)
 + blueprint: {} (FormBlueprint, required)
-+ data: {} (object, optional) - keys are FormGroup names and values are object with keys FormInput names and values
 
 ## FormBlueprint (object)
 + groups: [] (array[FormGroup], required)
+
+## FormData (object)
++ groups: [] (array[FormGroupValue], required)
 
 ## FormGroup (object)
 + label: "test,jpg" (string, required)
 + name: "confirmed" (string, required)
 + inputs: [] (array[FormInput], required)
 
+## FormGroupValue (object)
++ name: "confirmed" (string, required)
++ inputs: [] (array[FormValue], required)
+
 ## FormInput (object)
 + order: 1 (number, optional)
 + label: "test,jpg" (string, required)
 + name: "confirmed" (string, required)
++ value: "1" (string, optional)
 + type: "checkbox" (string, required)
 + options: [] (array[InputOptions], optional)
+
+##FormValue (object)
++ name: "confirmed" (string, required)
++ value: "1" (string, required)
 
 ## InputOptions (object)
 + value: "1" (string, required)
@@ -985,16 +1001,6 @@ The event resources can be used for managing events.
                     "surname": "Z depa",
                     "created": "2015-10-12T18:02:24.047+0:00"
                 },
-                "data": {
-                    "default": {
-                        "created": "2015-10-12T18:02:24.047+0:00",
-                        "text": "Vuz prijel pozde"
-                    }
-                    "group1": {
-                        "input2": "2015-10-12T18:02:24.047+0:00",
-                        "text2": "Vuz prijel pozde"
-                    }
-                },
                 "blueprint": {
                   "groups": [
                     {
@@ -1006,7 +1012,8 @@ The event resources can be used for managing events.
                           "label": "Vytvořeno",
                           "name": "created",
                           "type": "text",
-                          "placeholder": "tohle je text"
+                          "placeholder": "tohle je text",
+                          "value": "Hodnota pole"
                         },
                         {
                           "order": 2,
@@ -1018,13 +1025,15 @@ The event resources can be used for managing events.
                           "order": 4,
                           "label": "Komentář",
                           "name": "comment",
-                          "type": "datetime"
+                          "type": "datetime",
+                          "value": "2015-10-12T18:02:24.047+01:00"
                         },
                         {
                           "order": 5,
                           "label": "Výběr",
                           "name": "selection",
                           "type": "select",
+                          "value": "2",
                           "options": [
                             {
                               "value": 1,
@@ -1257,6 +1266,9 @@ The event resources can be used for managing events.
 
 
 + Request
+
+    + Attributes (FormData)
+
     + Header
     
             Content-Type: application/json
@@ -1265,14 +1277,34 @@ The event resources can be used for managing events.
     + Body
     
             {
-                "default": {
-                    "created": "2015-10-12T18:02:24.047+0:00",
-                    "text": "Vuz prijel pozde"
-                }
-                "group1": {
-                    "input2": "2015-10-12T18:02:24.047+0:00",
-                    "text2": "Vuz prijel pozde"
-                }
+                "groups": [
+                    {
+                        "name": "default",
+                        "inputs": [
+                            {
+                                "name": "created",
+                                "value": "2015-10-12T18:02:24.047+01:00"
+                            },
+                            {
+                                "name": "text",
+                                "value": "Vuz prijel pozde"
+                            },
+                        ]
+                    },
+                    {
+                        "name": "group1",
+                        "inputs": [
+                            {
+                                "name": "created",
+                                "value": "2015-10-12T18:02:24.047+01:00"
+                            },
+                            {
+                                "name": "text",
+                                "value": "Vuz prijel pozde"
+                            },
+                        ]
+                    }
+                ]
             }
 
 + Response 204 
@@ -1577,7 +1609,7 @@ The event resources can be used for managing events.
 
 + Response 200 (application/json)
 
-    + Attributes (Event)
+    + Attributes (AttachmentData)
     
     + Header
 
