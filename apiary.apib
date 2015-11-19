@@ -147,12 +147,12 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 
 ## EventStep (object) 
 + id: "e27164e8-f8cd-47df-a5af-1c121e9aa94a" (string, required)
-+ heading: ""
++ heading: "Permoník v šachtě" (string, required)
 + position: 1 (number, required)
 + slot: 1 (number, required)
 + remark: "Nepodařilo se dovolat" (string, optional)
 + owner: {} (Owner, optional)
-+ description: "Zavolej na PČR" (string, required)
++ description: "Zavolej na PČR" (string, optional)
 + closed: "2014-09-11T17:02:27.761+02:00" (string, required)
 + attachments: [] (array[Attachment], required)
 + contacts: [] (array[Contact], required)
@@ -894,6 +894,7 @@ The event resources can be used for managing events.
                           {
                             "id": 1,
                             "position": 1,
+                            "heading": "Permoník v šachtě",
                             "slot": 2,
                             "remark": "Nepodařilo se dovolat",
                             "description": "Zavolej na PČR",
@@ -910,6 +911,7 @@ The event resources can be used for managing events.
                             "position": 4,
                             "slot": 1,
                             "remark": "",
+                            "heading": "Volání o pomoc",
                             "description": "Zavolej na dispecerovi",
                             "owner": {
                                 "id": 5,
@@ -925,6 +927,7 @@ The event resources can be used for managing events.
                             "id": 3,
                             "position": 1,
                             "slot": 2,
+                            "heading": "Volání o pomoc 2",
                             "remark": "Nepodařilo se dovolat",
                             "description": "Zavolej na PČR",
                             "owner": {
@@ -1468,6 +1471,7 @@ The event resources can be used for managing events.
                 "id": 1,
                 "position": 1,
                 "slot": 1,
+                "heading": "Volání o pomoc",
                 "remark": "Nepodařilo se dovolat",
                 "description": "Zavolej na PČR",
                 "closed": "2014-09-11T17:02:27.761+02:00",
