@@ -1769,23 +1769,26 @@ Offers metadata about one file
 ## File [/cdn/File]
 File management
 
-### Get the raw file data [GET] - download the file
+### Get the raw file data [GET]
 ------------
 **Returns stream with file content**
 
 + Request
+
     + Header
     
             Content-Type: application/json
             X-Api-Key: <your-private-token-key>
 
     + Body
+            
+            {
+                "Key": "BF8F98B3-0D25-4EFE-AE7E-A5F3DA0091AF"
+            }
 
-            "Key": "BF8F98B3-0D25-4EFE-AE7E-A5F3DA0091AF"
++ Response 200
 
-+ Response 200 (according to file mime type)
-
-        [54,58,...0]
+        [12,45,..,56]
         
 ### Insert new file [POST] 
 ------------
