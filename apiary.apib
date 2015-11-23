@@ -141,7 +141,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 
 ## Attachment (object)
 + id: 1 (number, required)
-+ link: "http://tubis/api/v1/attachmens/1" (string, required)
++ link: "/cdn/file/A3..." (string, required)
 + name: "Photo.jpg"
 
 ## EventSteps (object)
@@ -1677,7 +1677,7 @@ The event resources can be used for managing events.
 # Group Content Delivery Network
 The CDN resource should be used to store and manage all kind of document related to the tunnel application.
 
-## ContentTypes [/cdn/AllowedContentTypes]
+## ContentTypes [/cdn/allowedcContentTypes]
 List of all supported content types
 
 ### Get All supported content types [GET]
@@ -1705,7 +1705,7 @@ List of all supported content types
             ...
         }
 
-## All files meta data [/cdn/FileInfos]
+## All files meta data [/cdn/fileInfos]
 Offers metadata to all file in cdn
 
 ### Get all files meta data [GET]
@@ -1736,24 +1736,21 @@ Offers metadata to all file in cdn
             "changed": "2015-11-05T19:27:28.6821174+01:00"
         }]
 
-## File meta data [/cdn/FileInfo]
+## File meta data [/cdn/fileInfo/{key}]
 Offers metadata about one file
 
 ### Get file meta data [GET]
 ------------
 **Returns file meta data**
 
++ Parameters
+    + key (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `key`which can identify file.
+
 + Request
     + Header
     
             Content-Type: application/json
             X-Api-Key: <your-private-token-key>
-    
-    + Body
-
-            {
-                "Key": "BF8F98B3-0D25-4EFE-AE7E-A5F3DA0091AF"
-            }
 
 + Response 200 (application/json)
 
@@ -1766,12 +1763,15 @@ Offers metadata about one file
             "changed": "2015-11-05T18:44:00.0508545+01:00"
         }
 
-## File [/cdn/File]
+## File [/cdn/file/{key}]
 File management
 
 ### Get the raw file data [GET]
 ------------
 **Returns stream with file content**
+
++ Parameters
+    + key (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `key`which can identify file.
 
 + Request
 
@@ -1779,12 +1779,6 @@ File management
     
             Content-Type: application/json
             X-Api-Key: <your-private-token-key>
-
-    + Body
-            
-            {
-                "Key": "BF8F98B3-0D25-4EFE-AE7E-A5F3DA0091AF"
-            }
 
 + Response 200
 
@@ -1802,11 +1796,13 @@ File management
 
     + Body
 
-            "ContentType": "image/jpeg",
-            "FileName": "prostenazev.jpg",
-            "KeyWords": "manual",
-            "Content": "data:image/png;base64,iVBORw0KGgoAAA...",
-            
+            {
+                "contentType": "image/jpeg",
+                "fileName": "prostenazev.jpg",
+                "keyWords": "manual",
+                "content": "data:image/png;base64,iVBORw0KGgoAAA..."
+            }
+
 + Response 200 (application/json)
 
         "a2edfbad2c35479daf079ed508b0576f"
@@ -1815,6 +1811,9 @@ File management
 ------------
 **Updates file on CDN - key required. Content is base64 encoded, "data:..." is neither needed, neither required**
 
++ Parameters
+    + key (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `key`which can identify file.
+
 + Request
     + Header
     
@@ -1823,29 +1822,30 @@ File management
 
     + Body
 
-            "Key": "bf8f98b30d254efeae7ea5f3da0091af",
-            "ContentType": "image/jpeg",
-            "FileName": "prostenazev.jpg",
-            "KeyWords": "manual",
-            "Content": "data:image/png;base64,iVBORw0KGgoAAA...",
-            
+            {
+                "contentType": "image/jpeg",
+                "fileName": "prostenazev.jpg",
+                "keyWords": "manual",
+                "content": "data:image/png;base64,iVBORw0KGgoAAA...",
+            }
+
 + Response 200 (application/json)
 
         "true"
 
 ### Delete file [DELETE] 
 ------------
-**Deletes file on CDN**
+**Deletes file on CDN.**
+
++ Parameters
+    + key (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `key`which can identify file.
+
 
 + Request
     + Header
     
             Content-Type: application/json
             X-Api-Key: <your-private-token-key>
-
-    + Body
-
-            "Key": "bf8f98b30d254efeae7ea5f3da0091af",
 
 + Response 200 (application/json)
 
@@ -1867,8 +1867,8 @@ Tries to find text in cdn metadata
     + Body
 
             {
-                "OnlyKeywords": "false",
-                "SearchFor": "jpg"
+                "onlyKeywords": "false",
+                "searchFor": "jpg"
             }
 
 + Response 200 (application/json)
