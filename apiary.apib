@@ -31,7 +31,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + automatic: true (boolean, required)
 + source: "KERBERUS" (string, required)
 + title: "Rozbitá žárovka" (string, required)
-+ severity: {} (ReportSeverity, required)
++ severity: "COMMONOCCURRENCE" (string, required)
 + priority: 1 (number, required)
 + description: Car stops in tunnel (string, required)
 + created: "2014-09-11T17:02:27.761+02:00" (string, required)
@@ -1937,6 +1937,7 @@ The report resources can be used for managing reports.
                     "surname": "Tunelář"
                   },
                   "source": "PHONE",
+                  "severity": "COMMONOCCURRENCE",
                   "state": "NEW",
                   "priority": 1,
                   "created": "2014-10-20T17:11:27.761+02:00",
@@ -1970,6 +1971,7 @@ The report resources can be used for managing reports.
                     "surname": "Tunelář"
                   },
                   "source": "PHONE",
+                  "severity": "COMMONOCCURRENCE",
                   "state": "NEW",
                   "priority": 1,
                   "created": "2014-10-20T17:11:27.761+02:00",
@@ -2074,6 +2076,7 @@ The report resources can be used for managing reports.
                 "surname": "Tunelář"
               },
               "source": "PHONE",
+              "severity": "COMMONOCCURRENCE",
               "state": "NEW",
               "priority": 1,
               "created": "2014-10-20T17:11:27.761+02:00",
