@@ -107,7 +107,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + remark: "Nahlášeno z více zdrojů" (string, required)
 + reports: ["125f9669-af7a-4eeb-b7e5-7f1d7286e195", "e27164e8-f8cd-47df-a5af-1c121e9aa94a"] (array[string], required)
 + steps: {} (EventSteps, required)
-+ contacts: [] (array[Contact], optional)
++ organizationsContacts: [] (array[ContactOrganization], optional)
 + attachments: [] (array[Attachment], optional)
 
 ## EventLock  (object)
@@ -122,16 +122,22 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + owner: {} (Owner, required)
 + author: {} (Author, required)
 
+
+
+##ContactOrganization (object)
++ name: "PČR" (string, required)
++ contacts: [], (array[Contact], required)
+
+
 ## Contact (object)
-+ title: "PČR" (string, optional)
 + workplace: "odtahy" (string, optional)
 + position: "plk." (string, optional)
-+ Firstname: "Petr" (string, optional)
-+ Surname: "Dostřel" (string, optional)
++ firstname: "Petr" (string, optional)
++ surname: "Dostřel" (string, optional)
 + phone: "+420777888999" (string, optional)
 + mobile: "+420777888999" (string, optional)
 + email: "pmc1@praha.cz" (string, optional)
-+ analogrdst: "159 Mhz" (string, optional)
++ analogRadionStation: "159 Mhz" (string, optional)
 + pegas: "kanal 112" (string, optional)
 
 ## AttachmentData (object)
@@ -159,7 +165,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + description: "Zavolej na PČR" (string, optional)
 + closed: "2014-09-11T17:02:27.761+02:00" (string, required)
 + attachments: [] (array[Attachment], required)
-+ contacts: [] (array[Contact], required)
++ organizationsContacts: [] (array[ContactOrganization], required)
 + documents: [] (array[Attachment], required)
 
 ## EventFormLock (object)
@@ -893,6 +899,49 @@ The event resources can be used for managing events.
                         "id": "1",
                         "name": "běžná událost BU"
                       },
+                    "organizationsContacts": [
+                        {
+                          "name": "PČR",
+                          "contacts": [
+                            {
+                              "workplace": "Odtahy",
+                              "position": "odtahovač",
+                              "firstname": "",
+                              "surname": "",
+                              "phone": "+42074747747",
+                              "mobile": "+42074747747",
+                              "email": "info@sshmp.cz",
+                              "analogRadioStation": "169 MHz",
+                              "pegas": "kanál 112"
+                            } ,
+                            {
+                              "workplace": "Kriminalistika",
+                              "position": "detektiv",
+                              "firstname": "Jan",
+                              "surname": "Drsný",
+                              "phone": "+42074747747",
+                              "mobile": "+42074747747",
+                              "email": "info@sshmp.cz"
+                            }  
+                          ]
+                        },
+                        {
+                          "name": "IZS",
+                          "contacts": [
+                            {
+                              "workplace": "Hasiči",
+                              "position": "hasič",
+                              "firstname": "Petr",
+                              "surname": "Vodný",
+                              "phone": "+42074747747",
+                              "mobile": "+42074747747",
+                              "email": "info@sshmp.cz",
+                              "analogRadioStation": "169 MHz",
+                              "pegas": "kanál 112"
+                            }
+                          ]
+                        } 
+                    ],
                       "steps": {
                         "technology": [
                           {
@@ -1136,7 +1185,50 @@ The event resources can be used for managing events.
                     "remark": "Nepodařilo se dovolat",
                     "description": "Zavolej na PČR",
                     "closed": "2014-09-11T17:02:27.761+02:00",
-                    "attachments": []
+                    "attachments": [],
+                    "organizationsContacts": [
+                        {
+                          "name": "PČR",
+                          "contacts": [
+                            {
+                              "workplace": "Odtahy",
+                              "position": "odtahovač",
+                              "firstname": "",
+                              "surname": "",
+                              "phone": "+42074747747",
+                              "mobile": "+42074747747",
+                              "email": "info@sshmp.cz",
+                              "analogRadioStation": "169 MHz",
+                              "pegas": "kanál 112"
+                            } ,
+                            {
+                              "workplace": "Kriminalistika",
+                              "position": "detektiv",
+                              "firstname": "Jan",
+                              "surname": "Drsný",
+                              "phone": "+42074747747",
+                              "mobile": "+42074747747",
+                              "email": "info@sshmp.cz"
+                            }  
+                          ]
+                        },
+                        {
+                          "name": "IZS",
+                          "contacts": [
+                            {
+                              "workplace": "Hasiči",
+                              "position": "hasič",
+                              "firstname": "Petr",
+                              "surname": "Vodný",
+                              "phone": "+42074747747",
+                              "mobile": "+42074747747",
+                              "email": "info@sshmp.cz",
+                              "analogRadioStation": "169 MHz",
+                              "pegas": "kanál 112"
+                            }
+                          ]
+                        } 
+                    ],
                   }
                 ],
                 "traffic" : [
