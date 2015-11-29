@@ -104,11 +104,16 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + severity: {} (Severity, required)
 + owner: {} (Owner, optional)
 + author: {} (Author, required)
-+ remark: "Nahlášeno z více zdrojů" (string, required)
++ notes: [] (array[EventNote], required)
 + reports: ["125f9669-af7a-4eeb-b7e5-7f1d7286e195", "e27164e8-f8cd-47df-a5af-1c121e9aa94a"] (array[string], required)
 + steps: {} (EventSteps, required)
 + organizationsContacts: [] (array[ContactOrganization], optional)
 + attachments: [] (array[Attachment], optional)
+
+## EventNote
++ author: {} (Author, required)
++ created: "2014-09-11T17:02:27.761+02:00" (string, required)
++ text: "Poznámka" (string, required)
 
 ## EventLock  (object)
 + id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
@@ -1275,6 +1280,35 @@ The event resources can be used for managing events.
             }
 
 + Response 204
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+
+## Event note [/tunnels/{tunnelId}/events/{id}/notes]
+
+### Create new event note [POST]
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+    
+    + Body 
+    
+            {
+                "text": "Testovací poznámka"
+            }
+
++ Response 201
     + Header
     
             X-Time: 2014-09-11T17:02:27.761+02:00
