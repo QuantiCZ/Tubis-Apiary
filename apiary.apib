@@ -80,6 +80,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + code: "010" (string, required)
 + name: "Zvýšení obsahu škodlivin v ovzduší nad kritický limit" (string, required)
 + priority: 99 (number, required)
++ title: "5.1" (string, required)
 
 ## Author (object)
 + forename: "Jan" (string, required)
@@ -716,7 +717,8 @@ The event resources can be used for managing events.
                   "type": {
                     "code": "011",
                     "name": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit",
-                    "priority": 6
+                    "priority": 6,
+                    "title": "6.1"
                   },
                   "severity": {
                     "id": "1",
@@ -769,11 +771,12 @@ The event resources can be used for managing events.
                       "title": "Prasklé potrubí",
                       "location": "Potrubí",
                       "source": "KERBERUS",
-                      "priority": 6,
                       "created": "2014-09-11T17:02:27.761+02:00",
                       "type": {
                         "code": "011",
-                        "name": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit"
+                        "name": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit",
+                        "priority": 6,
+                        "title": "6.1"
                       },
                       "severity": {
                         "id": "1",
@@ -832,15 +835,16 @@ The event resources can be used for managing events.
                       "title": "Prasklé potrubí",
                       "location": "Potrubí",
                       "source": "KERBERUS",
-                      "priority": 6,
                       "created": "2014-09-11T17:02:27.761+02:00",
                       "regime": {
-                        "code": "MR"
+                        "code": "MR",
                         "name": "Mimořádný režim"
                       },
                       "type": {
                         "code": "011",
-                        "name": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit"
+                        "name": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit",
+                        "priority": 6,
+                        "title": "6.1"
                       },
                       "severity": {
                         "id": "1",
@@ -901,14 +905,15 @@ The event resources can be used for managing events.
                       "title": "Prasklé potrubí",
                       "location": "Potrubí",
                       "source": "KERBERUS",
-                      "priority": 6,
                       "created": "2014-09-11T17:02:27.761+02:00",
                       "type": {
                         "code": "011",
-                        "name": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit"
+                        "name": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit",
+                        "priority": 6,
+                        "title": "6.1"
                       },
                       "regime": {
-                        "code": "MR"
+                        "code": "MR",
                         "name": "Mimořádný režim"
                       },
                       "severity": {
@@ -1057,10 +1062,11 @@ The event resources can be used for managing events.
               "type": {
                 "code": "011",
                 "name": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit",
-                "priority": 6
+                "priority": 6,
+                "title": "5.2"
               },
               "regime": {
-                "code": "MR"
+                "code": "MR",
                 "name": "Mimořádný režim"
               },
               "severity": {
