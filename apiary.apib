@@ -98,6 +98,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + closed: "2014-09-11T17:02:27.761+02:00" (string, required)
 + state: "NEW" (string, required)
 + source: "KERBERUS" (string, required)
++ regime: {} (Regime, required)
 + form: {} (Form, required)
 + location: "Sektor C1" (string, optional)
 + type: {} (EventType, required)
@@ -127,7 +128,9 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + owner: {} (Owner, required)
 + author: {} (Author, required)
 
-
+## Regime (object)
++ code: "MR" (string, required)
++ name: "Mimořádný režim" (string, required)
 
 ##ContactOrganization (object)
 + name: "PČR" (string, required)
@@ -831,6 +834,10 @@ The event resources can be used for managing events.
                       "source": "KERBERUS",
                       "priority": 6,
                       "created": "2014-09-11T17:02:27.761+02:00",
+                      "regime": {
+                        "code": "MR"
+                        "name": "Mimořádný režim"
+                      },
                       "type": {
                         "code": "011",
                         "name": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit"
@@ -871,7 +878,7 @@ The event resources can be used for managing events.
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
 
-### Get events steps locks [GET]
+### Get events steps [GET]
 
 + Request
     + Header
@@ -899,6 +906,10 @@ The event resources can be used for managing events.
                       "type": {
                         "code": "011",
                         "name": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit"
+                      },
+                      "regime": {
+                        "code": "MR"
+                        "name": "Mimořádný režim"
                       },
                       "severity": {
                         "id": "1",
@@ -1047,6 +1058,10 @@ The event resources can be used for managing events.
                 "code": "011",
                 "name": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit",
                 "priority": 6
+              },
+              "regime": {
+                "code": "MR"
+                "name": "Mimořádný režim"
               },
               "severity": {
                 "id": "1",
