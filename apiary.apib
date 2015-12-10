@@ -250,8 +250,8 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 ## FormBlueprint (object)
 + groups: [] (array[FormGroup], required)
 
-## FormData (object)
-+ groups: [] (array[FormGroupValue], required)
+## FormGroupData (object)
++ inputs: [] (array[FormInput], required)
 
 ## FormGroup (object)
 + label: "test,jpg" (string, required)
@@ -1426,18 +1426,19 @@ The event resources can be used for managing events.
 + Response 503
 
 
-## Update event form data [/tunnels/{tunnelId}/events/{id}/form/data]
+## Update event form data [/tunnels/{tunnelId}/events/{id}/form/{formGroup}/data]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + id (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `id`which can identify event.
+    + formGroup (required, string, `default`) ... String `default` which can form group.
 
 ### Update form data [PUT]
 
 
 + Request
 
-    + Attributes (FormData)
+    + Attributes (FormGroupData)
 
     + Header
     
@@ -1447,32 +1448,14 @@ The event resources can be used for managing events.
     + Body
     
             {
-                "groups": [
+                "inputs": [
                     {
-                        "name": "default",
-                        "inputs": [
-                            {
-                                "name": "created",
-                                "value": "2015-10-12T18:02:24.047+01:00"
-                            },
-                            {
-                                "name": "text",
-                                "value": "Vuz prijel pozde"
-                            },
-                        ]
+                        "name": "created",
+                        "value": "2015-10-12T18:02:24.047+01:00"
                     },
                     {
-                        "name": "group1",
-                        "inputs": [
-                            {
-                                "name": "created",
-                                "value": "2015-10-12T18:02:24.047+01:00"
-                            },
-                            {
-                                "name": "text",
-                                "value": "Vuz prijel pozde"
-                            },
-                        ]
+                        "name": "text",
+                        "value": "Vuz prijel pozde"
                     }
                 ]
             }
