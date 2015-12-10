@@ -137,19 +137,19 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + name: "Mimořádný režim" (string, required)
 
 ##ContactOrganization (object)
-+ name: "PČR" (string, required)
 + contacts: [], (array[Contact], required)
 
 
 ## Contact (object)
++ organization: "PČR" (string, optional)
 + workplace: "odtahy" (string, optional)
 + position: "plk." (string, optional)
-+ firstname: "Petr" (string, optional)
++ forename: "Petr" (string, optional)
 + surname: "Dostřel" (string, optional)
 + phone: "+420777888999" (string, optional)
 + mobile: "+420777888999" (string, optional)
 + email: "pmc1@praha.cz" (string, optional)
-+ analogRadionStation: "159 Mhz" (string, optional)
++ analogRdst: "159 Mhz" (string, optional)
 + pegas: "kanal 112" (string, optional)
 
 ## AttachmentData (object)
@@ -623,7 +623,7 @@ The user resources can be used for managing users.
 
 ### Delete user [DELETE]
 -----------
-**Deactivate user.**
+**Deletes user.**
 
 + Request
     + Header
@@ -2531,6 +2531,220 @@ The report resources can be used for managing reports.
                 ]
             }
         
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+# Group Contact resources
+The contact resources can be used for managing contacts.
+
+## Contact collection [/contacts]
+
+### Get all contacts [GET]
+-----------
+**Returns all contacts.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+
+    + Attributes (Contact)
+    
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+    
+    + Body 
+    
+            {
+                "contacts": [
+                    {
+                        "organization": "PČR",
+                        "workplace": "Oddělení dopravy",
+                        "position": "plk.",
+                        "forename": "Ondřej",
+                        "surname": "Schrabal",
+                        "phone": "987654321",
+                        "mobile": "123456789",
+                        "email": "hrabalo@quanti.cz",
+                        "analogRdst": "110Mhz",
+                        "pegas": ""
+                    },
+                    {
+                        "organization": "PČR",
+                        "workplace": "Oddělení vražd",
+                        "position": "col.",
+                        "forename": "Vlastislav",
+                        "surname": "Blažek",
+                        "phone": "987654321",
+                        "mobile": "123456789",
+                        "email": "blazekv@quanti.cz",
+                        "analogRdst": "110Mhz",
+                        "pegas": "10Mhz"
+                    }
+                ]
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+### Create contact [POST]
+-----------
+**Creates contact.**
+
++ Request
+    + Attributes (Contact)
+    
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+    
+    + Body 
+    
+            {
+                "organization": "PČR",
+                "workplace": "Oddělení dopravy",
+                "position": "plk.",
+                "forename": "Ondřej",
+                "surname": "Schrabal",
+                "phone": "987654321",
+                "mobile": "123456789",
+                "email": "hrabalo@quanti.cz",
+                "analogRdst": "110Mhz",
+                "pegas": ""
+            }
+            
++ Response 201 (application/json)
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+            Location: /contacts/{id}
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## Contact [/contacts/{id}]
+
++ Parameters
+    + id (required, string, `b63b6226-0978-4155-8249-1ca396f6c7e7`) ... String `id`which can identify contact.
+
+### Get contact data [GET]
+-----------
+**Get contact.**
+
++ Request
+    + Attributes (Contact)
+
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200
+
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+            
+            
+    + Body
+    
+            {
+                "organization": "PČR",
+                "workplace": "Oddělení dopravy",
+                "position": "plk.",
+                "forename": "Ondřej",
+                "surname": "Schrabal",
+                "phone": "987654321",
+                "mobile": "123456789",
+                "email": "hrabalo@quanti.cz",
+                "analogRdst": "110Mhz",
+                "pegas": ""
+            }
+
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+### Update contact data [PUT]
+-----------
+**Update contact.**
+
++ Request
+    + Attributes (Contact)
+
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
+    + Body
+    
+            {
+                "organization": "PČR",
+                "workplace": "Oddělení dopravy",
+                "position": "plk.",
+                "forename": "Ondřej",
+                "surname": "Schrabal",
+                "phone": "987654321",
+                "mobile": "123456789",
+                "email": "hrabalo@quanti.cz",
+                "analogRdst": "110Mhz",
+                "pegas": ""
+            }
+
++ Response 204
+
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+### Delete contact [DELETE]
+-----------
+**Deletes contact.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 204
+
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+            
 + Response 401
 + Response 403
 + Response 404
