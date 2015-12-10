@@ -1489,11 +1489,12 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-## Event form lock [/tunnels/{tunnelId}/events/{id}/form/lock]
+## Event form lock [/tunnels/{tunnelId}/events/{id}/form/{formGroup}/lock]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + id (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `id`which can identify event.
+    + formGroup (required, string, `default`) ... String `default` which can form group.
 
 ### Create or refresh event form lock [PUT]
 
