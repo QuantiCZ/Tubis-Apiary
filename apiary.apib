@@ -257,6 +257,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + label: "test,jpg" (string, required)
 + name: "confirmed" (string, required)
 + inputs: [] (array[FormInput], required)
++ owner: {} (Owner, optional)
 
 ## FormGroupValue (object)
 + name: "confirmed" (string, required)
@@ -1104,6 +1105,12 @@ The event resources can be used for managing events.
                     {
                       "label": "Průběh řešení události",
                       "name": "ts1",
+                      "owner": {
+                        "locked": false,
+                        "forename": "Petr",
+                        "surname": "Zelený",
+                        "created": "2014-09-11T17:02:27.761+02:00"
+                      }
                       "inputs": [
                         {
                           "order": 1,
