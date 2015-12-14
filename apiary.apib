@@ -753,12 +753,12 @@ The user resources can be used for managing users.
 # Group Templates resources
 The template resources can be used for managing events templates.
 
-## Template collection [/tunnels/{tunnelId}/templates]
+## /tunnels/{tunnelId}/templates
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
 
-### Get all templates [GET]
+### GET
 
 + Request
     + Header
@@ -788,13 +788,13 @@ The template resources can be used for managing events templates.
 + Response 500
 + Response 503
 
-## Template steps collection [/tunnels/{tunnelId}/templates/{templateId}/steps]
+## /tunnels/{tunnelId}/templates/{templateId}/steps 
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + templateId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `templateId`which can identify template.
 
-### Get all template steps [GET]
+### GET
 
 + Request
     + Header
@@ -824,7 +824,7 @@ The template resources can be used for managing events templates.
 + Response 500
 + Response 503
 
-### Create template step [POST]
+### POST
 
 + Request
     + Header
@@ -867,7 +867,7 @@ The template resources can be used for managing events templates.
 + Response 500
 + Response 503
 
-## Template step [/tunnels/{tunnelId}/templates/{templateId}/steps/{stepId}]
+## /tunnels/{tunnelId}/templates/{templateId}/steps/{stepId}
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
@@ -875,7 +875,7 @@ The template resources can be used for managing events templates.
     + stepId (required, string, `g2h6564e8-f9cd-44df-25af-1cd821e9aaa`) ... String `stepId`which can identify template step.
 
 
-### Update template step [PUT]
+### PUT
 
 + Request
     + Header
@@ -908,7 +908,7 @@ The template resources can be used for managing events templates.
 + Response 500
 + Response 503
 
-### Delete template step [DELETE]
+### DELETE
 
 + Request
     + Header
@@ -931,13 +931,13 @@ The template resources can be used for managing events templates.
 + Response 500
 + Response 503
 
-## Template documents [/tunnels/{tunnelId}/templates/{templateId}/documents]
+## /tunnels/{tunnelId}/templates/{templateId}/documents
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + templateId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `templateId`which can identify template.
 
-### Get all templates documents [GET]
+### GET
 
 + Request
     + Header
@@ -973,7 +973,7 @@ The template resources can be used for managing events templates.
 + Response 500
 + Response 503
 
-### Create template document [POST]
+### POST
 -----------
 **Create template document.**
 
@@ -1003,14 +1003,14 @@ The template resources can be used for managing events templates.
 + Response 500
 + Response 503
 
-## Template document [/tunnels/{tunnelId}/template/{templateId}/documents/{fileId}]
+## /tunnels/{tunnelId}/template/{templateId}/documents/{fileId}
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + templateId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `templateId`which can identify template.
     + fileId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `fileId`which can identify file.
     
-### Delete template document [DELETE]
+### DELETE
 
 + Request
     + Header
@@ -1030,13 +1030,13 @@ The template resources can be used for managing events templates.
 + Response 500
 + Response 503
 
-## Template contacts [/tunnels/{tunnelId}/templates/{templateId}/contacts]
+## /tunnels/{tunnelId}/templates/{templateId}/contacts
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + templateId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `templateId`which can identify template.
 
-### Get all templates contacts [GET]
+### GET
 
 + Request
     + Header
@@ -1091,7 +1091,7 @@ The template resources can be used for managing events templates.
 + Response 500
 + Response 503
 
-### Create template contact [POST]
+### POST
 -----------
 **Create template contact.**
 
@@ -1129,14 +1129,14 @@ The template resources can be used for managing events templates.
 + Response 500
 + Response 503
 
-## Template contact [/tunnels/{tunnelId}/template/{templateId}/contacts/{contactId}]
+## /tunnels/{tunnelId}/template/{templateId}/contacts/{contactId}
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + templateId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `templateId`which can identify template.
     + contactId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `contactId`which can identify contact.
 
-### Update template contact [PUT]
+### PUT
 -----------
 **Update template contact.**
 
@@ -1177,7 +1177,7 @@ The template resources can be used for managing events templates.
 + Response 500
 + Response 503
 
-### Delete template contact [DELETE]
+### DELETE
 -----------
 **Deletes template contact.**
 
