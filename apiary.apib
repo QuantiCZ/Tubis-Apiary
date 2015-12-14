@@ -788,11 +788,155 @@ The template resources can be used for managing events templates.
 + Response 500
 + Response 503
 
+## Template steps collection [/tunnels/{tunnelId}/templates/{templateId}/steps]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + templateId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `templateId`which can identify template.
+
+### Get all template steps [GET]
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+            
++ Response 200 (application/json)
+    
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+    
+    + Body 
+    
+            {
+              "steps": [
+                {}
+              ]
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+### Create template step [POST]
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+            
+    + Body 
+    
+            {
+                "position": 1,
+                "heading": "Permoník v šachtě",
+                "slot": 2,
+                "remark": "Nepodařilo se dovolat",
+                "description": "Zavolej na PČR"
+            }
+            
++ Response 201 (application/json)
+    
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+    
+    + Body 
+    
+            {
+                "id": 1,
+                "position": 1,
+                "heading": "Permoník v šachtě",
+                "slot": 2,
+                "remark": "Nepodařilo se dovolat",
+                "description": "Zavolej na PČR"
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## Template step [/tunnels/{tunnelId}/templates/{templateId}/steps/{stepId}]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + templateId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `templateId`which can identify template.
+    + stepId (required, string, `g2h6564e8-f9cd-44df-25af-1cd821e9aaa`) ... String `stepId`which can identify template step.
+
+
+### Update template step [PUT]
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+            
+    + Body 
+    
+            {
+                "id": 1,
+                "position": 1,
+                "heading": "Permoník v šachtě",
+                "slot": 2,
+                "remark": "Nepodařilo se dovolat",
+                "description": "Zavolej na PČR"
+            }
+            
++ Response 204
+    
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+### Delete template step [DELETE]
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+            
++ Response 204
+    
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+    
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
 ## Template documents [/tunnels/{tunnelId}/templates/{templateId}/documents]
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + templateId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `templateId`which can identify template.
+
 ### Get all templates documents [GET]
 
 + Request
