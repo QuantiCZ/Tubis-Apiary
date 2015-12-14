@@ -180,6 +180,9 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + organizationsContacts: [] (array[ContactOrganization], required)
 + documents: [] (array[Attachment], required)
 
+## TemplateDocuments (object)
++ documents: [] (array[Attachment], required)
+
 ## EventFormLock (object)
 + id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
 + title: "Požár" (string, required)
@@ -773,11 +776,108 @@ The template resources can be used for managing events templates.
     
             {
               "templates": [
+                {}
+              ]
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## Template documents [/tunnels/{tunnelId}/templates/{templateId}/documents]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + templateId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `templateId`which can identify template.
+### Get all templates documents [GET]
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+            
++ Response 200 (application/json)
+
+    + Attributes(TemplateDocuments)
+    
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+    
+    + Body 
+    
+            {
+              "documents": [
                 {
+                  "id": "fb89365084b943a98c7aa2081d1fadcf",
+                  "link": "/cdn/file/fb893650-84b9-43a9-8c7a-a2081d1fadcf",
+                  "name": "1.jpg"
                 }
               ]
             }
         
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+### Create template document [POST]
+-----------
+**Create template document.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
+    + Body 
+    
+            {
+                "content": "data:application/pdf;base64,JVBERi0x....LjQKJ0YK="
+                "contentType": "application/pdf"
+                "filename": "informace.pdf"
+            }
+
++ Response 204 
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## Template document [/tunnels/{tunnelId}/template/{templateId}/documents/{fileId}]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + templateId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `templateId`which can identify template.
+    + fileId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `fileId`which can identify file.
+    
+### Delete template document [DELETE]
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 204 
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
 + Response 401
 + Response 403
 + Response 404
