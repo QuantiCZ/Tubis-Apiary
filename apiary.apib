@@ -2120,18 +2120,14 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-## Event step collection [/tunnels/{tunnelId}/events/steps]
-## Event document collection [/tunnels/{tunnelId}/events/documents]
-
 
 # Group Content Delivery Network
 The CDN resource should be used to store and manage all kind of document related to the tunnel application.
 
-## ContentTypes [/cdn/allowedcContentTypes]
+## /cdn/allowedcContentTypes
 List of all supported content types
 
-### Get All supported content types [GET]
-------------
+### GET
 **Returns dictionary with file extensions as keys and MIME types as values**
 
 + Request
@@ -2155,11 +2151,10 @@ List of all supported content types
             ...
         }
 
-## All files meta data [/cdn/fileInfos]
+## /cdn/fileInfos
 Offers metadata to all file in cdn
 
-### Get all files meta data [GET]
-------------
+### GET
 **Returns all files meta data**
 
 + Request
@@ -2186,11 +2181,10 @@ Offers metadata to all file in cdn
             "changed": "2015-11-05T19:27:28.6821174+01:00"
         }]
 
-## File meta data [/cdn/fileInfo/{key}]
+## /cdn/fileInfo/{key}
 Offers metadata about one file
 
-### Get file meta data [GET]
-------------
+### GET
 **Returns file meta data**
 
 + Parameters
@@ -2213,11 +2207,10 @@ Offers metadata about one file
             "changed": "2015-11-05T18:44:00.0508545+01:00"
         }
 
-## File [/cdn/file/{key}]
+## /cdn/file/{key}
 File management
 
-### Get the raw file data [GET]
-------------
+### GET
 **Returns stream with file content**
 
 + Parameters
@@ -2234,8 +2227,7 @@ File management
 
         [12,45,..,56]
         
-### Insert new file [POST] 
-------------
+### POST
 **Inserts new file into cdn and returns it's key. Content is base64 encoded, "data:..." is neither needed, neither required**
 
 + Request
@@ -2257,8 +2249,7 @@ File management
 
         "a2edfbad2c35479daf079ed508b0576f"
         
-### Update file [PUT] 
-------------
+### PUT
 **Updates file on CDN - key required. Content is base64 encoded, "data:..." is neither needed, neither required**
 
 + Parameters
@@ -2283,8 +2274,7 @@ File management
 
         "true"
 
-### Delete file [DELETE] 
-------------
+### DELETE
 **Deletes file on CDN.**
 
 + Parameters
@@ -2301,10 +2291,10 @@ File management
 
         "true"
 
-## Search in cdn meta data [/cdn/search]
+## /cdn/search
 Tries to find text in cdn metadata
 
-### Search in cdn [GET]
+### GET
 ------------
 **Returns file meta data array (FileInfo). Or empty array in case of no result**
 
@@ -2339,23 +2329,22 @@ Tries to find text in cdn metadata
             "changed": "2015-11-05T18:44:00.0508545+01:00"
         }]
 
-# Group Schedulers resources
+# Group Schedulers 
 The scheduler resources can be used for managing automatic schedule events.
 
-## Scheduler collection [/tunnels/{tunnelId}/schedulers]
+## /tunnels/{tunnelId}/schedulers
 
-# Group Reports resources
+# Group Reports 
 The report resources can be used for managing reports.
 
-## Report collection [/tunnels/{tunnelId}/reports/{?states}]
+## /tunnels/{tunnelId}/reports/{?states}
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + states (optional, string, `new`) .. String state which can filter reports.
 
-### Get all reports [GET]
------------
-**Returns all reports.**
+### GET
+**List of reports**
 
 + Request
     + Header
@@ -2450,9 +2439,8 @@ The report resources can be used for managing reports.
 + Response 500
 + Response 503
 
-### Create report [POST]
------------
-**Creates report.**
+### POST
+**Creates report**
 
 + Request
     + Attributes (Report)
@@ -2487,15 +2475,14 @@ The report resources can be used for managing reports.
 + Response 500
 + Response 503
 
-## Single report [/tunnels/{tunnelId}/reports/{id}]
+## /tunnels/{tunnelId}/reports/{id}
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + id (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `id`which can identify report.
 
-### Get single reports [GET]
------------
-**Returns single report.**
+### GET
+**Get report**
 
 + Request
     + Header
@@ -2553,16 +2540,15 @@ The report resources can be used for managing reports.
 + Response 500
 + Response 503
 
-## Report single event [/tunnels/{tunnelId}/reports/{id}/events/{eventId}]
+## /tunnels/{tunnelId}/reports/{id}/events/{eventId}
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + id (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `id`which can identify report.
     + eventId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `eventId`which can identify event.
 
-### Assign report to event [PUT]
------------
-**Returns single report.**
+### PUT
+**Create event from report**
 
 + Request
     + Header
@@ -2579,14 +2565,13 @@ The report resources can be used for managing reports.
 + Response 500
 + Response 503
 
-## Report severities collection [/tunnels/{tunnelId}/reports/severities]
+## /tunnels/{tunnelId}/reports/severities
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
 
-### Get report severities collection [GET]
------------
-**Returns all report severities.**
+### GET
+**List of report severities**
 
 + Request
     + Header
@@ -2626,14 +2611,13 @@ The report resources can be used for managing reports.
 + Response 500
 + Response 503
 
-## Report parent types collection [/tunnels/{tunnelId}/reports/parent-types]
+## /tunnels/{tunnelId}/reports/parent-types
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
 
-### Get report parent types collection [GET]
------------
-**Returns all report parent types.**
+### GET
+**List of report parent types**
 
 + Request
     + Header
@@ -2675,15 +2659,14 @@ The report resources can be used for managing reports.
 + Response 500
 + Response 503
 
-## Report types by parent type collection [/tunnels/{tunnelId}/reports/parent-types/{id}/types]
+## /tunnels/{tunnelId}/reports/parent-types/{id}/types
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + id (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `id`which can identify report parent type.
 
-### Get report types collection by parent type id [GET]
------------
-**Returns all report types by parent type id.**
+### GET
+**List of report types by parent type id.**
 
 + Request
     + Header
@@ -2727,14 +2710,13 @@ The report resources can be used for managing reports.
 + Response 500
 + Response 503
 
-## Report sources collection [/tunnels/{tunnelId}/reports/sources]
+## /tunnels/{tunnelId}/reports/sources
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
 
-### Get report sources collection [GET]
------------
-**Returns all report sources.**
+### GET
+**List of report sources**
 
 + Request
     + Header
@@ -2782,14 +2764,13 @@ The report resources can be used for managing reports.
 + Response 500
 + Response 503
 
-## Report states collection [/tunnels/{tunnelId}/reports/states]
+## /tunnels/{tunnelId}/reports/states
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
 
-### Get report states collection [GET]
------------
-**Returns all report states.**
+### GET
+**List of report states**
 
 + Request
     + Header
@@ -2829,14 +2810,13 @@ The report resources can be used for managing reports.
 + Response 500
 + Response 503
 
-# Group Contact resources
+# Group Contact
 The contact resources can be used for managing contacts.
 
-## Contact collection [/contacts]
+## /contacts
 
-### Get all contacts [GET]
------------
-**Returns all contacts.**
+### GET
+**List of contacts.**
 
 + Request
     + Header
@@ -2891,9 +2871,8 @@ The contact resources can be used for managing contacts.
 + Response 500
 + Response 503
 
-### Create contact [POST]
------------
-**Creates contact.**
+### POST
+**Creates contact**
 
 + Request
     + Attributes (Contact)
@@ -2931,14 +2910,13 @@ The contact resources can be used for managing contacts.
 + Response 500
 + Response 503
 
-## Contact [/contacts/{id}]
+## /contacts/{id}
 
 + Parameters
     + id (required, string, `b63b6226-0978-4155-8249-1ca396f6c7e7`) ... String `id`which can identify contact.
 
-### Get contact data [GET]
------------
-**Get contact.**
+### GET
+**Get contact**
 
 + Request
     + Attributes (Contact)
@@ -2978,9 +2956,8 @@ The contact resources can be used for managing contacts.
 + Response 500
 + Response 503
 
-### Update contact data [PUT]
------------
-**Update contact.**
+### PUT
+**Update contact**
 
 + Request
     + Attributes (Contact)
@@ -3019,9 +2996,8 @@ The contact resources can be used for managing contacts.
 + Response 500
 + Response 503
 
-### Delete contact [DELETE]
------------
-**Deletes contact.**
+### DELETE
+**Deletes contact**
 
 + Request
     + Header
