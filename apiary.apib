@@ -282,19 +282,18 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + value: "1" (string, required)
 + label: "Number" (string, required)
 
-# Group Authentication resources
+# Group Authentication
 The authentication resources can be used for **log in** and **log out** the user to the Tubis application.
 
-## Authentication [/tunnels/{tunnelId}/authentication]
+## /tunnels/{tunnelId}/authentication
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
 
-### Login [POST]
------------
-**Returns the private api token key for the user with its validity**
+### POST
 
------------
+**Returns the private API token key for the user with its validity**
+
 
 + Request
     + Attributes (Auth)
@@ -335,11 +334,9 @@ The authentication resources can be used for **log in** and **log out** the user
 + Response 500
 + Response 503
 
-### Logout [DELETE]
------------
+### DELETE
 **Logs out the user by the Api-Key, if the response is successful.**
 
------------
 
 + Request
     + Header
@@ -361,11 +358,10 @@ The authentication resources can be used for **log in** and **log out** the user
 + Response 500
 + Response 503
 
-### Reconnect [PUT]
------------
+### PUT
+
 **Reconnects the user by the Api-Key, if the response is successful.**
 
------------
 
 + Request
     + Header
@@ -394,17 +390,16 @@ The authentication resources can be used for **log in** and **log out** the user
 + Response 503
 
 
-# Group Role resources
+# Group Role
 The role resources can be used for managing user roles.
 
-## Role collection [/tunnels/{tunnelId}/roles]
+## /tunnels/{tunnelId}/roles
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
 
-### Get all roles [GET]
------------
-**Returns all roles.**
+### GET
+**List of roles.**
 
 + Request
     + Header
@@ -447,17 +442,16 @@ The role resources can be used for managing user roles.
 + Response 500
 + Response 503
 
-# Group User resources
+# Group User
 The user resources can be used for managing users.
 
-## User collection [/tunnels/{tunnelId}/users]
+## /tunnels/{tunnelId}/users
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
 
-### Get all users [GET]
------------
-**Returns all users.**
+### GET
+**List of users.**
 
 + Request
     + Header
@@ -506,9 +500,8 @@ The user resources can be used for managing users.
 + Response 500
 + Response 503
 
-### Create user [POST]
------------
-**Creates user.**
+### POST
+**Create user**
 
 + Request
     + Attributes (User)
@@ -543,15 +536,14 @@ The user resources can be used for managing users.
 + Response 500
 + Response 503
 
-## User [/tunnels/{tunnelId}/users/{id}]
+## /tunnels/{tunnelId}/users/{id}
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + id (required, string, `b63b6226-0978-4155-8249-1ca396f6c7e7`) ... String `id`which can identify user.
 
-### Get user data [GET]
------------
-**Get user.**
+### GET
+**Get user**
 
 + Request
 
@@ -589,9 +581,8 @@ The user resources can be used for managing users.
 + Response 500
 + Response 503
 
-### Update user data [PUT]
------------
-**Update user.**
+### PUT
+**Update user**
 
 + Request
     + Attributes (User)
@@ -626,9 +617,8 @@ The user resources can be used for managing users.
 + Response 500
 + Response 503
 
-### Delete user [DELETE]
------------
-**Deletes user.**
+### DELETE
+**Delete user**
 
 + Request
     + Header
@@ -650,15 +640,14 @@ The user resources can be used for managing users.
 + Response 500
 + Response 503
 
-## User [/tunnels/{tunnelId}/users/{id}/events]
+## /tunnels/{tunnelId}/users/{id}/events
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + id (required, string, `b63b6226-0978-4155-8249-1ca396f6c7e7`) ... String `id`which can identify user.
 
-### Get user events data [GET]
------------
-**Get user events.**
+### GET
+**List of user events**
 
 + Request
 
@@ -712,14 +701,13 @@ The user resources can be used for managing users.
 + Response 500
 + Response 503
 
-## User password [/tunnels/{tunnelId}/users/{id}/password]
+## /tunnels/{tunnelId}/users/{id}/password
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + id (required, string, `b63b6226-0978-4155-8249-1ca396f6c7e7`) ... String `id`which can identify user.
 
-### Update user password [PUT]
------------
+### PUT
 **Change user password.**
 
 + Request
@@ -750,7 +738,7 @@ The user resources can be used for managing users.
 + Response 500
 + Response 503
 
-# Group Templates resources
+# Group Templates
 The template resources can be used for managing events templates.
 
 ## /tunnels/{tunnelId}/templates
@@ -1220,14 +1208,13 @@ The template resources can be used for managing events templates.
 + Response 500
 + Response 503
 
-# Group Event resources
+# Group Event
 The event resources can be used for managing events.
 
-## Event collection [/tunnels/{tunnelId}/events]
+## /tunnels/{tunnelId}/events
 
-### Get all events [GET]
------------
-**Returns all events.**
+### GET
+**List of events**
 
 + Request
     + Header
@@ -1279,12 +1266,14 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-## Events lock [/tunnels/{tunnelId}/events?locked=true]
+## /tunnels/{tunnelId}/events?locked=true
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
 
 ### Get locked events [GET]
+
+**List of locked events**
 
 
 + Request
@@ -1346,238 +1335,14 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-## Events form lock [/tunnels/{tunnelId}/events/form?locked=true]
-
-+ Parameters
-    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
-
-### Get locked events [GET]
-
-
-+ Request
-    + Header
-    
-            Content-Type: application/json
-            X-Api-Key: <your-private-token-key>
-
-+ Response 200 (application/json) 
-    + Attributes (EventFormLock)
-    
-    + Header
-    
-            X-Time: 2014-09-11T17:02:27.761+02:00
-    + Body
-    
-            {
-                "events": [
-                    {
-                      "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
-                      "title": "Prasklé potrubí",
-                      "location": "Potrubí",
-                      "characteristic": "Charakteristika události",
-                      "source": "KERBERUS",
-                      "created": "2014-09-11T17:02:27.761+02:00",
-                      "regime": {
-                        "code": "MR",
-                        "name": "Mimořádný režim"
-                      },
-                      "type": {
-                        "code": "011",
-                        "name": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit",
-                        "priority": 6,
-                        "title": "6.1"
-                      },
-                      "severity": {
-                        "id": "1",
-                        "name": "běžná událost BU"
-                      },
-                      "author": {
-                        "id": 1,
-                        "forename": "Jan",
-                        "surname": "Dlaždička"
-                      },
-                      "form": {
-                        "owner": {
-                            "id": 3,
-                            "locked": true,
-                            "forename": "Pepa",
-                            "surname": "Z depa",
-                            "created": "2015-10-12T18:02:24.047+0:00"
-                        }
-                    }
-                ]
-            }
-
-+ Response 401
-+ Response 403
-+ Response 404
-+ Response 405
-+ Response 406
-+ Response 500
-+ Response 503
-
-## Events steps lock [/tunnels/{tunnelId}/events/steps?locked=true]
-
-**This resource will also setup started on the step, if is not setup.**
-
-+ Parameters
-    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
-
-### Get events steps [GET]
-
-+ Request
-    + Header
-    
-            Content-Type: application/json
-            X-Api-Key: <your-private-token-key>
-
-+ Response 200 (application/json)
-    + Attributes (EventLock)
-    
-    + Header
-    
-            X-Time: 2014-09-11T17:02:27.761+02:00
-    + Body
-    
-            {
-                "events": [
-                     {
-                      "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
-                      "title": "Prasklé potrubí",
-                      "location": "Potrubí",
-                      "characteristic": "Charakteristika události",
-                      "activityDescription": "Popis činnosti",
-                      "stateResult": "Následek stavu",
-                      "source": "KERBERUS",
-                      "created": "2014-09-11T17:02:27.761+02:00",
-                      "type": {
-                        "code": "011",
-                        "name": "Zvýšení obsahu škodlivin v ovzduší nad kritický limit",
-                        "priority": 6,
-                        "title": "6.1"
-                      },
-                      "regime": {
-                        "code": "MR",
-                        "name": "Mimořádný režim"
-                      },
-                      "severity": {
-                        "id": "1",
-                        "name": "běžná událost BU"
-                      },
-                    "organizationsContacts": [
-                        {
-                          "name": "PČR",
-                          "contacts": [
-                            {
-                              "workplace": "Odtahy",
-                              "position": "odtahovač",
-                              "firstname": "",
-                              "surname": "",
-                              "phone": "+42074747747",
-                              "mobile": "+42074747747",
-                              "email": "info@sshmp.cz",
-                              "analogRadioStation": "169 MHz",
-                              "pegas": "kanál 112"
-                            } ,
-                            {
-                              "workplace": "Kriminalistika",
-                              "position": "detektiv",
-                              "firstname": "Jan",
-                              "surname": "Drsný",
-                              "phone": "+42074747747",
-                              "mobile": "+42074747747",
-                              "email": "info@sshmp.cz"
-                            }  
-                          ]
-                        },
-                        {
-                          "name": "IZS",
-                          "contacts": [
-                            {
-                              "workplace": "Hasiči",
-                              "position": "hasič",
-                              "firstname": "Petr",
-                              "surname": "Vodný",
-                              "phone": "+42074747747",
-                              "mobile": "+42074747747",
-                              "email": "info@sshmp.cz",
-                              "analogRadioStation": "169 MHz",
-                              "pegas": "kanál 112"
-                            }
-                          ]
-                        } 
-                    ],
-                      "steps": {
-                        "technology": [
-                          {
-                            "id": 1,
-                            "position": 1,
-                            "heading": "Permoník v šachtě",
-                            "slot": 2,
-                            "remark": "Nepodařilo se dovolat",
-                            "description": "Zavolej na PČR",
-                            "owner": {
-                                "id": 1,
-                                "locked": true,
-                                "forename": "Jan",
-                                "surname": "Dlaždička",
-                                "created": "2014-09-11T17:02:27.761+02:00"
-                            }
-                          },
-                          {
-                            "id": 2,
-                            "position": 4,
-                            "slot": 1,
-                            "remark": "",
-                            "heading": "Volání o pomoc",
-                            "description": "Zavolej na dispecerovi",
-                            "owner": {
-                                "id": 5,
-                                "locked": false,
-                                "forename": "Tomas",
-                                "surname": "Marny",
-                                "created": "2014-09-11T17:02:27.761+02:00"
-                            }
-                          }
-                        ],
-                        "traffic": [
-                          {
-                            "id": 3,
-                            "position": 1,
-                            "slot": 2,
-                            "heading": "Volání o pomoc 2",
-                            "remark": "Nepodařilo se dovolat",
-                            "description": "Zavolej na PČR",
-                            "owner": {
-                                "id": 3,
-                                "locked": true,
-                                "forename": "Pepa",
-                                "surname": "Z depa",
-                                "created": "2015-10-12T18:02:24.047+0:00"
-                            }
-                          }
-                        ]
-                      }
-                    }
-                ]
-            }
-+ Response 401
-+ Response 403
-+ Response 404
-+ Response 405
-+ Response 406
-+ Response 500
-+ Response 503
-
-## Single event [/tunnels/{tunnelId}/events/{id}]
+## /tunnels/{tunnelId}/events/{id}
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + id (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `id`which can identify event.
 
-### Get single event [GET]
------------
-**Returns single event.**
+### GET
+**Get event**
 
 + Request
     + Header
@@ -1835,9 +1600,8 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-### Update single event [PUT]
------------
-**Update single event.**
+### PUT
+**Update event**
 
 + Request
     + Header
@@ -1866,9 +1630,10 @@ The event resources can be used for managing events.
 + Response 503
 
 
-## Event note [/tunnels/{tunnelId}/events/{id}/notes]
+## /tunnels/{tunnelId}/events/{id}/notes
 
-### Create new event note [POST]
+### POST
+**Create event note**
 
 + Request
     + Header
@@ -1894,10 +1659,9 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-## Event start [/tunnels/{tunnelId}/events/{id}/started]
+## /tunnels/{tunnelId}/events/{id}/started
 
-### Update event started [PUT]
------------
+### PUT
 **It will change started timestamp only for the first time. It will set started to now.**
 
 + Request
@@ -1918,13 +1682,14 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-## Event lock [/tunnels/{tunnelId}/events/{id}/lock]
+## /tunnels/{tunnelId}/events/{id}/lock
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + id (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `id`which can identify event.
 
-### Create or refresh event lock [PUT]
+### PUT
+**Create or refresh event lock**
 
 
 + Request
@@ -1945,7 +1710,8 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-### Delete event lock [DELETE]
+### DELETE
+**Delete event lock**
 
 + Request
     + Header
@@ -1966,14 +1732,15 @@ The event resources can be used for managing events.
 + Response 503
 
 
-## Update event form data [/tunnels/{tunnelId}/events/{id}/form/{formGroup}/data]
+## /tunnels/{tunnelId}/events/{id}/form/{formGroup}/data
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + id (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `id`which can identify event.
     + formGroup (required, string, `default`) ... String `default` which can form group.
 
-### Update form data [PUT]
+### PUT
+**Update form group data**
 
 
 + Request
@@ -2012,14 +1779,15 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-## Event form lock [/tunnels/{tunnelId}/events/{id}/form/{formGroup}/lock]
+## /tunnels/{tunnelId}/events/{id}/form/{formGroup}/lock
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + id (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `id`which can identify event.
     + formGroup (required, string, `default`) ... String `default` which can form group.
 
-### Create or refresh event form lock [PUT]
+### PUT
+**Create or refresh event form group lock**
 
 
 + Request
@@ -2040,7 +1808,8 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-### Delete event form lock [DELETE]
+### DELETE
+**Delete event form group lock**
 
 + Request
     + Header
@@ -2061,15 +1830,14 @@ The event resources can be used for managing events.
 + Response 503
 
 
-## Event attachments [/tunnels/{tunnelId}/events/{eventId}/attachments]
+## /tunnels/{tunnelId}/events/{eventId}/attachments
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + eventId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `eventId`which can identify event.
     
-### Create event attachment [POST]
------------
-**Create event attachment.**
+### POST
+**Create event attachment**
 
 + Request
     + Header
@@ -2097,16 +1865,15 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-## Event attachment [/tunnels/{tunnelId}/events/{eventId}/attachments/{fileId}]
+## /tunnels/{tunnelId}/events/{eventId}/attachments/{fileId}
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + eventId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `eventId`which can identify event.
     + fileId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `fileId`which can identify file.
     
-### Delete event attachment [DELETE]
------------
-**Delete event attachment .**
+### DELETE
+**Delete event attachment**
 
 + Request
     + Header
@@ -2127,16 +1894,15 @@ The event resources can be used for managing events.
 + Response 503
 
 
-## Single step [/tunnels/{tunnelId}/events/{eventId}/steps/{stepId}]
+## /tunnels/{tunnelId}/events/{eventId}/steps/{stepId}
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + eventId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `eventId`which can identify event.
     + stepId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `stepId`which can identify step event.
 
-### Get single event step [GET]
------------
-**Returns single event step.**
+### GET
+**Get event step**
 
 + Request
     + Header
@@ -2174,9 +1940,8 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-### Update event step [PUT]
------------
-**This will update closed everytime.**
+### PUT
+**Update event step**
 
 + Request
     + Header
@@ -2207,7 +1972,7 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-## Event step close [/tunnels/{tunnelId}/events/{eventId}/steps/{stepId}/closed]
+## /tunnels/{tunnelId}/events/{eventId}/steps/{stepId}/closed
 
 **This resource will also setup started on the step, if is not setup. It will update closed attribute everytime**
 
@@ -2216,7 +1981,8 @@ The event resources can be used for managing events.
     + eventId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `eventId`which can identify event.
     + stepId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `stepId`which can identify step event.
 
-### Close step [PUT]
+### PUT
+**Close step**
 
 + Request
     + Header
@@ -2236,16 +2002,16 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-## Event step lock [/tunnels/{tunnelId}/events/{eventId}/steps/{stepId}/lock]
+## /tunnels/{tunnelId}/events/{eventId}/steps/{stepId}/lock
 
-**This resource will also setup started on the step, if is not setup.**
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + eventId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `eventId`which can identify event.
     + stepId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `stepId`which can identify step event.
 
-### Create or refresh event step lock [PUT]
+### PUT
+**Create or refresh event step lock**
 
 + Request
     + Header
@@ -2267,7 +2033,8 @@ The event resources can be used for managing events.
 
 
 
-### Delete event step lock [DELETE]
+### DELETE
+**Delete event step lock**
 
 + Request
     + Header
@@ -2285,16 +2052,15 @@ The event resources can be used for managing events.
 + Response 503
 
 
-## Event step attachments [/tunnels/{tunnelId}/events/{eventId}/steps/{stepId}/attachments]
+## /tunnels/{tunnelId}/events/{eventId}/steps/{stepId}/attachments
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + eventId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `eventId`which can identify event.
     + stepId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `stepId`which can identify step event.
 
-### Upload event step attachment [POST]
------------
-**Returns single event step attachment.**
+### POST
+**Upload event step attachment**
 
 + Request
     + Header
@@ -2327,7 +2093,7 @@ The event resources can be used for managing events.
 + Response 500
 + Response 503
 
-## Single event step attachment [/tunnels/{tunnelId}/events/{eventId}/steps/{stepId}/attachments/{fileId}]
+## /tunnels/{tunnelId}/events/{eventId}/steps/{stepId}/attachments/{fileId}
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
@@ -2335,9 +2101,9 @@ The event resources can be used for managing events.
     + stepId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `stepId`which can identify step event.
     + fileId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `fileId`which can identify file.
 
-### Delete step attachment [DELETE]
+### DELETE
 -----------
-**Delete single event step attachment.**
+**Delete event step attachment**
 
 + Request
     + Header
