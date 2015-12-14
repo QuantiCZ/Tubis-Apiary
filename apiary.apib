@@ -747,13 +747,49 @@ The user resources can be used for managing users.
 + Response 500
 + Response 503
 
+# Group Templates resources
+The template resources can be used for managing events templates.
+
+## Template collection [/tunnels/{tunnelId}/templates]
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+
+### Get all templates [GET]
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+            
++ Response 200 (application/json)
+    
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+    
+    + Body 
+    
+            {
+              "templates": [
+                {
+                }
+              ]
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
 # Group Event resources
 The event resources can be used for managing events.
 
 ## Event collection [/tunnels/{tunnelId}/events]
-
-+ Parameters
-    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
 
 ### Get all events [GET]
 -----------
