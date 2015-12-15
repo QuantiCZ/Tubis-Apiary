@@ -112,7 +112,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + notes: [] (array[EventNote], required)
 + reports: ["125f9669-af7a-4eeb-b7e5-7f1d7286e195", "e27164e8-f8cd-47df-a5af-1c121e9aa94a"] (array[string], required)
 + steps: {} (EventSteps, required)
-+ organizationsContacts: [] (array[ContactOrganization], optional)
++ contacts: [] (array[Contact], optional)
 + attachments: [] (array[Attachment], optional)
 
 ## EventNote
@@ -135,10 +135,6 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 ## Regime (object)
 + code: "MR" (string, required)
 + name: "Mimořádný režim" (string, required)
-
-##ContactOrganization (object)
-+ contacts: [], (array[Contact], required)
-
 
 ## Contact (object)
 + organization: "PČR" (string, optional)
@@ -177,7 +173,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + description: "Zavolej na PČR" (string, optional)
 + closed: "2014-09-11T17:02:27.761+02:00" (string, required)
 + attachments: [] (array[Attachment], required)
-+ organizationsContacts: [] (array[ContactOrganization], required)
++ contacts: [] (array[Contact], required)
 + documents: [] (array[Attachment], required)
 
 ## TemplateDocuments (object)
