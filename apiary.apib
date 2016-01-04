@@ -41,6 +41,26 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + parentType: {} (ReportParentType, required)
 + events: [] (array[SimpleEvent], optional)
 
+## ReportUpdate (object)
++ id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
++ title: "Rozbitá žárovka" (string, required)
++ name: "Závažná porucha nebo havárie na technologickém zařízení: výpadek vzduchotechniky" (string, required)
++ description: Car stops in tunnel (string, required)
++ note: "nejde elektrika" (string, optional)
++ author: {} (Author, required)
++ source: "KERBERUS" (string, required)
++ state: "NEW" (string, required)
++ priority: 1 (number, required)
++ severity: "COMMONOCCURRENCE" (string, required)
++ location: "přesně uprostřed" (string, optional)
++ parentType: {} (ReportParentType, required)
++ type: {} (ReportType, optional)
++ created: "2014-09-11T17:02:27.761+02:00" (string, required)
++ events: [] (array[SimpleEvent], optional)
++ sourceName: "CCTV dohled" (string, required)
++ stateName: "Nové" (string, required)
++ severityName: "Krizová situace" (string, required)
+
 ## Reports (object)
 + reports: [] (array[Report], required)
 
@@ -83,6 +103,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + title: "5.1" (string, required)
 
 ## Author (object)
++ id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
 + forename: "Jan" (string, required)
 + surname: "Dlaždička" (string, required)
 
@@ -2502,7 +2523,6 @@ The report resources can be used for managing reports.
                 "code": "021",              
                 "name": "Kočička v šachtě"
               },
-              "automatic": false,
               "note": "Kočička v šachtě",
               "description": "V šachte se vyskytla kočicka. Vydává dešsivé zvuky. Pravděpodobně v sekci C1",
               "author": {
@@ -2537,6 +2557,59 @@ The report resources can be used for managing reports.
 + Response 406
 + Response 500
 + Response 503
+
+### PUT
+**Update report**
++ Request
+    + Attributes (ReportUpdate)
+    
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+    
+    + Body 
+
+
+            {
+                "id": "458f3f110cde4b1fac3d9af930648521",
+                "automatic": false,
+                "title": "11.2",
+                "name": "Závažná porucha nebo havárie na technologickém zařízení: výpadek vzduchotechniky ",
+                "description": "",
+                "note": "nejde elektrika",
+                "author": {
+                    "id": "b5d8b42a3f654521ace41f3cfa8d1274",
+                    "forename": "Kerberus",
+                    "surname": "Automatic"
+                },
+                "source": "CCTVSURVEILLANCE",
+                "state": "DONE",
+                "priority": 15,
+                "severity": "CRISISSITUATION",
+                "location": "",
+                "parentType": {
+                    "id": "31187b4ba4604193a004b8ff500c61e5",
+                    "code": "110",
+                    "name": "Závažná porucha nebo havárie na technologickém zařízení:"
+                },
+                "type": {
+                    "id": "dcac87ed8b1f43e28e4c76dc25f6ed3e",
+                    "code": "112",
+                    "name": "Závažná porucha nebo havárie na technologickém zařízení: výpadek vzduchotechniky "
+                },
+                "created": "2016-01-04T11:12:27.4381530+01:00",
+                "events": [],
+                "sourceName": "CCTV dohled",
+                "stateName": "Nové",
+                "severityName": "Krizová situace"
+            }
+            
++ Response 201 (application/json)
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+            Location: /contacts/{id}
 
 ## /tunnels/{tunnelId}/reports/{id}/events/{eventId}
 
