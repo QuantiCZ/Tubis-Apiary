@@ -202,6 +202,51 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 ## TemplateDocuments (object)
 + documents: [] (array[Attachment], required)
 
+## Template (object)
++ id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
++ severity: {} (Severity, required)
++ type: "011" (string, required)
++ parentType: "010" (string, required)
++ title: "Požár" (string, required)
++ regime: {} (Regime, required)
++ form: {} (TemplateForm, required)
++ priority: 99 (number, required)
++ name: "Zvýšení obsahu škodlivin v ovzduší nad kritický limit" (string, required)
++ description: "" (string, optional)
++ characteristic: "" (string, optional)
++ dueToACondition: "" (string, optional)
++ descriptionRmd: "" (string, optional)
+
+## TemplateForm (object)
++ id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
++ sysname: "form01" (string, required)
++ groups: [] (array[TemplateFormGroup], required)
+
+## TemplateFormGroup (object)
++ label: "Zakladni" (string, required)
++ name: "baseGroup" (string, required)
++ controls: [] (array[TemplateFormControl], required)
+
+## TemplateFormControl (object)
++ id: "e27164e8-f8cd-47df-a5af-1c121e9aa94a" (string, required)
++ order: 1 (number, required)
++ isreadonly: true (boolean, required)
++ definition: {} (TemplateControlDefinition, required)
+
+## TemplateControlDefinition (object)
++ id: "125f9669-af7a-4eeb-b7e5-7f1d7286e19a" (string, required)
++ sysname: "currentTime" (string, required)
++ label: "Aktualni cas" (string, required)
++ validationregex: "" (string, optional)
++ type: {} (TemplateControlEnumType, required)
++ subtype: {} (TemplateControlEnumType, optional)
++ preferedhtmltag: "div" (string, required)
++ enumitems: [] (TemplateControlEnumType, optional)
+
+## TemplateControlEnumType (object)
++ code: 1 (number, required)
++ label: "Aktualni cas" (string, required)
+
 ## EventFormLock (object)
 + id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
 + title: "Požár" (string, required)
@@ -790,9 +835,137 @@ The template resources can be used for managing events templates.
     
             {
               "templates": [
-                {}
+                {
+                    "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
+                    "severity": {
+                        "id": "1",
+                        "name": "běžná událost BU"
+                    },
+                    "type": "011",
+                    "parentType": "010",
+                    "title": "Prasklé potrubí",
+                    "regime": {
+                        "code": "MR",
+                        "name": "Mimořádný režim"
+                    },
+                    "form":{
+                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94b",
+                        "sysname": "e27164e8-f8cd-47df-a5af-1c121e9aa94b",
+                        "groups": [
+                            {
+                                "label": "Zakladni",
+                                "name": "baseGroup",
+                                "controls": [
+                                    {
+                                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94c",
+                                        "order": 1,
+                                        "isreadonly": false,
+                                        "definition": {
+                                            "id": "125f9669-af7a-4eeb-b7e5-7f1d7286e19a",
+                                            "sysname": "currentTime",
+                                            "label": "Aktualni cas",
+                                            "validationregex": "(.*)",
+                                            "type": {
+                                                "code": 1,
+                                                "label": "string"
+                                            } 
+                                            "subtype": {
+                                                "code": 2,
+                                                "label": "text"
+                                            } 
+                                            "preferedhtmltag": "div",
+                                            "enumitems": [
+                                                {
+                                                    "code": 0,
+                                                    "label": "prvni"
+                                                },
+                                                {
+                                                    "code": 1,
+                                                    "label": "druha"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
+                                        "order": 2,
+                                        "isreadonly": false,
+                                        "definition": {
+                                            "id": "125f9669-af7a-4eeb-b7e5-7f1d7286e19a",
+                                            "sysname": "carsCount",
+                                            "label": "Pocet automobilu",
+                                            "type": {
+                                                "code": 2,
+                                                "label": "integer"
+                                            } 
+                                            "preferedhtmltag": "input"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "label": "rozsireny",
+                                "name": "extGroup",
+                                "controls": [
+                                    {
+                                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94c",
+                                        "order": 1,
+                                        "isreadonly": false,
+                                        "definition": {
+                                            "id": "125f9669-af7a-4eeb-b7e5-7f1d7286e19a",
+                                            "sysname": "currentTime",
+                                            "label": "Aktualni cas",
+                                            "validationregex": "(.*)",
+                                            "type": {
+                                                "code": 1,
+                                                "label": "string"
+                                            } 
+                                            "subtype": {
+                                                "code": 2,
+                                                "label": "text"
+                                            } 
+                                            "preferedhtmltag": "div",
+                                            "enumitems": [
+                                                {
+                                                    "code": 0,
+                                                    "label": "prvni"
+                                                },
+                                                {
+                                                    "code": 1,
+                                                    "label": "druha"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
+                                        "order": 2,
+                                        "isreadonly": false,
+                                        "definition": {
+                                            "id": "125f9669-af7a-4eeb-b7e5-7f1d7286e19a",
+                                            "sysname": "carsCount",
+                                            "label": "Pocet automobilu",
+                                            "type": {
+                                                "code": 2,
+                                                "label": "integer"
+                                            } 
+                                            "preferedhtmltag": "input"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "priority": 6,
+                    "name": "ts1",
+                    "description": "se to pokazilo",
+                    "characteristic": "nullovatelné - charakteristika udalosti",
+                    "duetoacondition": "nullovatelné - následek stavu",
+                    "descriptionrmd": "nullovatelné - popis cinnosti ŘS",
+                }
               ]
             }
+
         
 + Response 401
 + Response 403
