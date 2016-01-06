@@ -848,6 +848,63 @@ The template resources can be used for managing events templates.
                         "code": "MR",
                         "name": "Mimořádný režim"
                     },
+                    "priority": 6,
+                    "name": "ts1",
+                    "description": "se to pokazilo",
+                    "characteristic": "nullovatelné - charakteristika udalosti",
+                    "duetoacondition": "nullovatelné - následek stavu",
+                    "descriptionrmd": "nullovatelné - popis cinnosti ŘS",
+                }
+              ]
+            }
+
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+## /tunnels/{tunnelId}/templates/definition
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+
+### GET
+
+**List of event templates**
+
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+            
++ Response 200 (application/json)
+    
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+    
+    + Body 
+    
+            {
+              "templates": [
+                {
+                    "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
+                    "severity": {
+                        "id": "1",
+                        "name": "běžná událost BU"
+                    },
+                    "type": "011",
+                    "parentType": "010",
+                    "title": "Prasklé potrubí",
+                    "regime": {
+                        "code": "MR",
+                        "name": "Mimořádný režim"
+                    },
                     "form":{
                         "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94b",
                         "sysname": "e27164e8-f8cd-47df-a5af-1c121e9aa94b",
