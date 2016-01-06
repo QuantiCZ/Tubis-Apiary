@@ -238,14 +238,23 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + sysname: "currentTime" (string, required)
 + label: "Aktualni cas" (string, required)
 + validationregex: "" (string, optional)
-+ type: {} (TemplateControlEnumType, required)
-+ subtype: {} (TemplateControlEnumType, optional)
++ type: {} (TemplateEnumType, required)
++ subtype: {} (TemplateEnumType, optional)
 + preferedhtmltag: "div" (string, required)
-+ enumitems: [] (TemplateControlEnumType, optional)
++ enumitems: [] (TemplateEnumType, optional)
 
-## TemplateControlEnumType (object)
+## TemplateEnumType (object)
 + code: 1 (number, required)
 + label: "Aktualni cas" (string, required)
+
+## TemplateStep (object)
++ id: "125f9669-af7a-4eeb-b7e5-7f1d7286e19a" (string, required)
++ templateid: "125f9669-af7a-4eeb-b7e5-7f1d7286e19a" (string, required)
++ number: 1 (number, required)
++ columntype: {} (TemplateEnumType, required)
++ slot: 1 (number, required)
++ label: "Operator zachova klid" (string, required)
++ description: "" (string, optional)
 
 ## EventFormLock (object)
 + id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
@@ -1034,7 +1043,30 @@ The template resources can be used for managing events templates.
     
             {
               "steps": [
-                {}
+                {
+                    "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
+                    "templateid": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
+                    "number": 2,
+                    "columntype": {
+                        "code": 1,
+                        "label": "Dispečer technologie"
+                    }
+                    "slot": 2,
+                    "heading": "Operator zachova klid",
+                    "description": "porad se neco deje",
+                },
+                {
+                    "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
+                    "templateid": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
+                    "number": 3,
+                    "columntype": {
+                        "code": 1,
+                        "label": "Dispečer technologie"
+                    }
+                    "slot": 3,
+                    "heading": "Operator zachova klid",
+                    "description": "porad se neco deje",
+                },
               ]
             }
         
