@@ -866,14 +866,15 @@ The template resources can be used for managing events templates.
 + Response 500
 + Response 503
 
-## /tunnels/{tunnelId}/templates/definition
+## /tunnels/{tunnelId}/templates/{templateId}/form
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + templateId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `templateId`which can identify template.
 
 ### GET
 
-**List of event templates**
+**Form definition object**
 
 
 + Request
@@ -891,138 +892,113 @@ The template resources can be used for managing events templates.
     + Body 
     
             {
-              "templates": [
-                {
-                    "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94a",
-                    "severity": {
-                        "id": "1",
-                        "name": "běžná událost BU"
-                    },
-                    "type": "011",
-                    "parentType": "010",
-                    "title": "Prasklé potrubí",
-                    "regime": {
-                        "code": "MR",
-                        "name": "Mimořádný režim"
-                    },
-                    "form":{
-                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94b",
-                        "sysname": "e27164e8-f8cd-47df-a5af-1c121e9aa94b",
-                        "groups": [
+                "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94b",
+                "sysname": "form05",
+                "groups": [
+                    {
+                        "label": "Zakladni",
+                        "name": "baseGroup",
+                        "controls": [
                             {
-                                "label": "Zakladni",
-                                "name": "baseGroup",
-                                "controls": [
-                                    {
-                                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94c",
-                                        "order": 1,
-                                        "isreadonly": false,
-                                        "definition": {
-                                            "id": "125f9669-af7a-4eeb-b7e5-7f1d7286e19a",
-                                            "sysname": "currentTime",
-                                            "label": "Aktualni cas",
-                                            "validationregex": "(.*)",
-                                            "type": {
-                                                "code": 1,
-                                                "label": "string"
-                                            } 
-                                            "subtype": {
-                                                "code": 2,
-                                                "label": "text"
-                                            } 
-                                            "preferedhtmltag": "div",
-                                            "enumitems": [
-                                                {
-                                                    "code": 0,
-                                                    "label": "prvni"
-                                                },
-                                                {
-                                                    "code": 1,
-                                                    "label": "druha"
-                                                }
-                                            ]
+                                "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94c",
+                                "order": 1,
+                                "isreadonly": false,
+                                "definition": {
+                                    "id": "125f9669-af7a-4eeb-b7e5-7f1d7286e19a",
+                                    "sysname": "currentTime",
+                                    "label": "Aktualni cas",
+                                    "validationregex": "(.*)",
+                                    "type": {
+                                        "code": 1,
+                                        "label": "string"
+                                    } 
+                                    "subtype": {
+                                        "code": 2,
+                                        "label": "text"
+                                    } 
+                                    "preferedhtmltag": "div",
+                                    "enumitems": [
+                                        {
+                                            "code": 0,
+                                            "label": "prvni"
+                                        },
+                                        {
+                                            "code": 1,
+                                            "label": "druha"
                                         }
-                                    },
-                                    {
-                                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
-                                        "order": 2,
-                                        "isreadonly": false,
-                                        "definition": {
-                                            "id": "125f9669-af7a-4eeb-b7e5-7f1d7286e19a",
-                                            "sysname": "carsCount",
-                                            "label": "Pocet automobilu",
-                                            "type": {
-                                                "code": 2,
-                                                "label": "integer"
-                                            } 
-                                            "preferedhtmltag": "input"
-                                        }
-                                    }
-                                ]
+                                    ]
+                                }
                             },
                             {
-                                "label": "rozsireny",
-                                "name": "extGroup",
-                                "controls": [
-                                    {
-                                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94c",
-                                        "order": 1,
-                                        "isreadonly": false,
-                                        "definition": {
-                                            "id": "125f9669-af7a-4eeb-b7e5-7f1d7286e19a",
-                                            "sysname": "currentTime",
-                                            "label": "Aktualni cas",
-                                            "validationregex": "(.*)",
-                                            "type": {
-                                                "code": 1,
-                                                "label": "string"
-                                            } 
-                                            "subtype": {
-                                                "code": 2,
-                                                "label": "text"
-                                            } 
-                                            "preferedhtmltag": "div",
-                                            "enumitems": [
-                                                {
-                                                    "code": 0,
-                                                    "label": "prvni"
-                                                },
-                                                {
-                                                    "code": 1,
-                                                    "label": "druha"
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
-                                        "order": 2,
-                                        "isreadonly": false,
-                                        "definition": {
-                                            "id": "125f9669-af7a-4eeb-b7e5-7f1d7286e19a",
-                                            "sysname": "carsCount",
-                                            "label": "Pocet automobilu",
-                                            "type": {
-                                                "code": 2,
-                                                "label": "integer"
-                                            } 
-                                            "preferedhtmltag": "input"
-                                        }
-                                    }
-                                ]
+                                "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
+                                "order": 2,
+                                "isreadonly": false,
+                                "definition": {
+                                    "id": "125f9669-af7a-4eeb-b7e5-7f1d7286e19a",
+                                    "sysname": "carsCount",
+                                    "label": "Pocet automobilu",
+                                    "type": {
+                                        "code": 2,
+                                        "label": "integer"
+                                    } 
+                                    "preferedhtmltag": "input"
+                                }
                             }
                         ]
                     },
-                    "priority": 6,
-                    "name": "ts1",
-                    "description": "se to pokazilo",
-                    "characteristic": "nullovatelné - charakteristika udalosti",
-                    "duetoacondition": "nullovatelné - následek stavu",
-                    "descriptionrmd": "nullovatelné - popis cinnosti ŘS",
-                }
-              ]
+                    {
+                        "label": "rozsireny",
+                        "name": "extGroup",
+                        "controls": [
+                            {
+                                "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94c",
+                                "order": 1,
+                                "isreadonly": false,
+                                "definition": {
+                                    "id": "125f9669-af7a-4eeb-b7e5-7f1d7286e19a",
+                                    "sysname": "currentTime",
+                                    "label": "Aktualni cas",
+                                    "validationregex": "(.*)",
+                                    "type": {
+                                        "code": 1,
+                                        "label": "string"
+                                    } 
+                                    "subtype": {
+                                        "code": 2,
+                                        "label": "text"
+                                    } 
+                                    "preferedhtmltag": "div",
+                                    "enumitems": [
+                                        {
+                                            "code": 0,
+                                            "label": "prvni"
+                                        },
+                                        {
+                                            "code": 1,
+                                            "label": "druha"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
+                                "order": 2,
+                                "isreadonly": false,
+                                "definition": {
+                                    "id": "125f9669-af7a-4eeb-b7e5-7f1d7286e19a",
+                                    "sysname": "carsCount",
+                                    "label": "Pocet automobilu",
+                                    "type": {
+                                        "code": 2,
+                                        "label": "integer"
+                                    } 
+                                    "preferedhtmltag": "input"
+                                }
+                            }
+                        ]
+                    }
+                ]
             }
-
         
 + Response 401
 + Response 403
