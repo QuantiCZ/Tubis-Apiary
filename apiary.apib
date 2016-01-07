@@ -1049,7 +1049,7 @@ The template resources can be used for managing events templates.
                     "number": 2,
                     "columntype": {
                         "code": 1,
-                        "label": "Dispečer technologie"
+                        "label": "DISPATCHER"
                     }
                     "slot": 2,
                     "heading": "Operator zachova klid",
@@ -1061,7 +1061,7 @@ The template resources can be used for managing events templates.
                     "number": 3,
                     "columntype": {
                         "code": 1,
-                        "label": "Dispečer technologie"
+                        "label": "DISPATCHER"
                     }
                     "slot": 3,
                     "heading": "Operator zachova klid",
@@ -1092,10 +1092,10 @@ The template resources can be used for managing events templates.
     + Body 
     
             {
-                "position": 1,
-                "heading": "Permoník v šachtě",
+                "number": 1,
+                "columntype": "OTHER",
                 "slot": 2,
-                "remark": "Nepodařilo se dovolat",
+                "heading": "Permoník v šachtě",
                 "description": "Zavolej na PČR"
             }
             
@@ -1108,12 +1108,16 @@ The template resources can be used for managing events templates.
     + Body 
     
             {
-                "id": 1,
-                "position": 1,
-                "heading": "Permoník v šachtě",
-                "slot": 2,
-                "remark": "Nepodařilo se dovolat",
-                "description": "Zavolej na PČR"
+                "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
+                "templateid": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
+                "number": 3,
+                "columntype": {
+                    "code": 1,
+                    "label": "DISPATCHER"
+                }
+                "slot": 3,
+                "heading": "Operator zachova klid",
+                "description": "porad se neco deje",
             }
         
 + Response 401
@@ -1131,6 +1135,45 @@ The template resources can be used for managing events templates.
     + templateId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `templateId`which can identify template.
     + stepId (required, string, `g2h6564e8-f9cd-44df-25af-1cd821e9aaa`) ... String `stepId`which can identify template step.
 
+### GET
+
+**List of template steps**
+
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+            
++ Response 200 (application/json)
+    
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+    
+    + Body 
+    
+            {
+                "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
+                "templateid": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
+                "number": 2,
+                "columntype": {
+                    "code": 1,
+                    "label": "DISPATCHER"
+                }
+                "slot": 2,
+                "heading": "Operator zachova klid",
+                "description": "porad se neco deje",
+            }
+
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
 
 ### PUT
 
@@ -1144,12 +1187,12 @@ The template resources can be used for managing events templates.
             
     + Body 
     
-            {
-                "id": 1,
-                "position": 1,
-                "heading": "Permoník v šachtě",
+             {
+                "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
+                "number": 1,
+                "columntype": "OTHER",
                 "slot": 2,
-                "remark": "Nepodařilo se dovolat",
+                "heading": "Permoník v šachtě",
                 "description": "Zavolej na PČR"
             }
             
