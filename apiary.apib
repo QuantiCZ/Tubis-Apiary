@@ -1401,84 +1401,27 @@ The template resources can be used for managing events templates.
 + Response 500
 + Response 503
 
-### POST
------------
-**Create template contact.**
-
-+ Request
-    + Header
-    
-            Content-Type: application/json
-            X-Api-Key: <your-private-token-key>
-
-    + Body 
-    
-            {
-                "organization": "PČR",
-                "workplace": "Oddělení dopravy",
-                "position": "plk.",
-                "forename": "Ondřej",
-                "surname": "Schrabal",
-                "phone": "987654321",
-                "mobile": "123456789",
-                "email": "hrabalo@quanti.cz",
-                "analogRdst": "110Mhz",
-                "pegas": ""
-            }
-
-+ Response 201 
-    + Header
-    
-            Location: /contacts/1
-            X-Time: 2014-09-11T17:02:27.761+02:00
-+ Response 401
-+ Response 403
-+ Response 404
-+ Response 405
-+ Response 406
-+ Response 500
-+ Response 503
-
-## /tunnels/{tunnelId}/template/{templateId}/contacts/{contactId}
+## /tunnels/{tunnelId}/templates/{templateId}/contacts/{contactId}
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + templateId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `templateId`which can identify template.
-    + contactId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `contactId`which can identify contact.
+    + contactId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `contactId`which can identify contact.
 
 ### PUT
 -----------
-**Update template contact.**
+**Assigns contact to template.**
 
 + Request
-    + Attributes (Contact)
-
     + Header
     
             Content-Type: application/json
             X-Api-Key: <your-private-token-key>
 
-    + Body
-    
-            {
-                "organization": "PČR",
-                "workplace": "Oddělení dopravy",
-                "position": "plk.",
-                "forename": "Ondřej",
-                "surname": "Schrabal",
-                "phone": "987654321",
-                "mobile": "123456789",
-                "email": "hrabalo@quanti.cz",
-                "analogRdst": "110Mhz",
-                "pegas": ""
-            }
-
-+ Response 204
-
++ Response 204 
     + Header
     
             X-Time: 2014-09-11T17:02:27.761+02:00
-
 + Response 401
 + Response 403
 + Response 404
@@ -1489,7 +1432,7 @@ The template resources can be used for managing events templates.
 
 ### DELETE
 -----------
-**Deletes template contact.**
+**Deletes contact from template.**
 
 + Request
     + Header
@@ -1497,12 +1440,10 @@ The template resources can be used for managing events templates.
             Content-Type: application/json
             X-Api-Key: <your-private-token-key>
 
-+ Response 204
-
++ Response 204 
     + Header
     
             X-Time: 2014-09-11T17:02:27.761+02:00
-            
 + Response 401
 + Response 403
 + Response 404
@@ -2890,11 +2831,10 @@ The report resources can be used for managing reports.
                 "severityName": "Krizová situace"
             }
             
-+ Response 201 (application/json)
++ Response 204
     + Header
     
             X-Time: 2014-09-11T17:02:27.761+02:00
-            Location: /contacts/{id}
 
 ## /tunnels/{tunnelId}/reports/{id}/events/{eventId}
 
