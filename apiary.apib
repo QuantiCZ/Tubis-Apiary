@@ -876,6 +876,52 @@ The template resources can be used for managing events templates.
 + Response 500
 + Response 503
 
+## /tunnels/{tunnelId}/templates/{templateId}/texts
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + templateId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `templateId`which can identify template.
+
+### GET
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+            
++ Response 200 (application/json)
+    
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+            
+    + Body 
+    
+            {
+                "characteristic": "Charakteristika události",
+                "activityDescription": "Popis činnosti",
+                "stateResult": "Následek stavu"
+            }
+      
+      
+### PUT
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+            
+    + Body 
+    
+            {
+                "characteristic": "Charakteristika události",
+                "activityDescription": "Popis činnosti",
+                "stateResult": "Následek stavu"
+            }
+            
++ Response 204
 
 ## /tunnels/{tunnelId}/templates/{templateId}/form
 
