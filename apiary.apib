@@ -1044,32 +1044,26 @@ The template resources can be used for managing events templates.
     + Body 
     
             {
-              "steps": [
-                {
-                    "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
-                    "templateid": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
-                    "number": 2,
-                    "columntype": {
-                        "code": 1,
-                        "label": "DISPATCHER"
-                    }
-                    "slot": 2,
-                    "heading": "Operator zachova klid",
-                    "description": "porad se neco deje",
-                },
-                {
-                    "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
-                    "templateid": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
-                    "number": 3,
-                    "columntype": {
-                        "code": 1,
-                        "label": "DISPATCHER"
-                    }
-                    "slot": 3,
-                    "heading": "Operator zachova klid",
-                    "description": "porad se neco deje",
-                },
-              ]
+                "steps": {
+                    "technology": [
+                        {
+                            "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
+                            "number": 2,
+                            "slot": 2,
+                            "heading": "Operator zachova klid",
+                            "description": "porad se neco deje"
+                        },
+                        {
+                            "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
+                            "number": 3,
+                            "slot": 3,
+                            "heading": "Operator zachova klid",
+                            "description": "porad se neco deje"
+                        }
+                    ],
+                "traffic": [],
+                "other": []
+                }
             }
         
 + Response 401
