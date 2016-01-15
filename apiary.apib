@@ -181,6 +181,12 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + link: "/cdn/file/A3..." (string, required)
 + name: "Photo.jpg"
 
+## Document (object)
++ id: 1 (number, required)
++ link: "/cdn/file/A3..." (string, required)
++ filename: "Photo.jpg" (string, required)
++ title: "photo" (string, required)
+
 ## EventSteps (object)
 + technology: [] (array[EventStep], required)
 + traffic: [] (array[EventStep], required)
@@ -200,7 +206,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + documents: [] (array[Attachment], required)
 
 ## TemplateDocuments (object)
-+ documents: [] (array[Attachment], required)
++ documents: [] (array[Document], required)
 
 ## Template (object)
 + id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
@@ -1310,7 +1316,8 @@ The template resources can be used for managing events templates.
                 {
                   "id": "fb89365084b943a98c7aa2081d1fadcf",
                   "link": "/cdn/file/fb893650-84b9-43a9-8c7a-a2081d1fadcf",
-                  "name": "1.jpg"
+                  "filename": "1.jpg",
+                  "title": "Image"
                 }
               ]
             }
@@ -1398,7 +1405,6 @@ The template resources can be used for managing events templates.
             
 + Response 200 (application/json)
 
-    + Attributes(TemplateDocuments)
     
     + Header
     
@@ -3356,3 +3362,55 @@ The contact resources can be used for managing contacts.
 + Response 406
 + Response 500
 + Response 503
+
+# Group Document
+The document resources can be used for managing documents.
+
+## /documents
+
+### GET
+**List of documents.**
+
++ Request
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 200 (application/json)
+
+    + Attributes (Document)
+    
+    + Header
+    
+            X-Time: 2014-09-11T17:02:27.761+02:00
+    
+    + Body 
+    
+    
+            {
+                "documents": [
+                    {
+                        "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
+                        "link": "/cdn/file/b63b6226-0978-4155-8249-1ca396f6c7e7",
+                        "filename": "Photo.jpg",
+                        "title": "Photo of tunnel"
+                    },
+                    {
+                        "id": "b63b6226-0978-4155-8249-1ca396656c77",
+                        "link": "/cdn/file/b63b6226-0978-4155-8249-1ca396656c77",
+                        "filename": "Switch.jpg",
+                        "title": "Photo of switch"
+                    }
+                ]
+            }
+        
++ Response 401
++ Response 403
++ Response 404
++ Response 405
++ Response 406
++ Response 500
++ Response 503
+
+
