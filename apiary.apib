@@ -1323,23 +1323,25 @@ The template resources can be used for managing events templates.
 + Response 500
 + Response 503
 
-### POST
 
-**Create step document**
+## /tunnels/{tunnelId}/template/{templateId}/documents/{fileId}
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + templateId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `templateId`which can identify template.
+    + fileId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `fileId`which can identify file.
+    
+
+
+### PUT
+
+** Add document to template **
 
 + Request
     + Header
     
             Content-Type: application/json
             X-Api-Key: <your-private-token-key>
-
-    + Body 
-    
-            {
-                "content": "data:application/pdf;base64,JVBERi0x....LjQKJ0YK="
-                "contentType": "application/pdf"
-                "filename": "informace.pdf"
-            }
 
 + Response 204 
     + Header
@@ -1352,13 +1354,6 @@ The template resources can be used for managing events templates.
 + Response 406
 + Response 500
 + Response 503
-
-## /tunnels/{tunnelId}/template/{templateId}/documents/{fileId}
-
-+ Parameters
-    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
-    + templateId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `templateId`which can identify template.
-    + fileId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `fileId`which can identify file.
     
 ### DELETE
 
