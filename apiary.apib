@@ -258,7 +258,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 ## TemplateStep (object)
 + id: "125f9669-af7a-4eeb-b7e5-7f1d7286e19a" (string, required)
 + templateid: "125f9669-af7a-4eeb-b7e5-7f1d7286e19a" (string, required)
-+ number: 1 (number, required)
++ position: 1 (number, required)
 + columntype: {} (TemplateEnumType, required)
 + slot: 1 (number, required)
 + label: "Operator zachova klid" (string, required)
@@ -1093,14 +1093,14 @@ The template resources can be used for managing events templates.
                     "technology": [
                         {
                             "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
-                            "number": 2,
+                            "position": 2,
                             "slot": 2,
                             "heading": "Operator zachova klid",
                             "description": "porad se neco deje"
                         },
                         {
                             "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
-                            "number": 3,
+                            "position": 3,
                             "slot": 3,
                             "heading": "Operator zachova klid",
                             "description": "porad se neco deje"
@@ -1133,7 +1133,7 @@ The template resources can be used for managing events templates.
     + Body 
     
             {
-                "number": 1,
+                "position": 1,
                 "columntype": "OTHER",
                 "slot": 2,
                 "heading": "Permoník v šachtě",
@@ -1151,7 +1151,7 @@ The template resources can be used for managing events templates.
             {
                 "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
                 "templateid": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
-                "number": 3,
+                "position": 3,
                 "columntype": {
                     "code": 1,
                     "label": "DISPATCHER"
@@ -1198,7 +1198,7 @@ The template resources can be used for managing events templates.
             {
                 "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
                 "templateid": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
-                "number": 2,
+                "position": 2,
                 "columntype": {
                     "code": 1,
                     "label": "DISPATCHER"
@@ -1229,8 +1229,7 @@ The template resources can be used for managing events templates.
     + Body 
     
              {
-                "id": "e27164e8-f8cd-47df-a5af-1c121e9aa94d",
-                "number": 1,
+                "position": 1,
                 "columntype": "OTHER",
                 "slot": 2,
                 "heading": "Permoník v šachtě",
