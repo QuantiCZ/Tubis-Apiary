@@ -1327,7 +1327,7 @@ The template resources can be used for managing events templates.
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
     + templateId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `templateId`which can identify template.
-    + fileId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `fileId`which can identify file.
+    + fileId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `fileId` which can identify file.
     
 
 
@@ -1438,9 +1438,9 @@ The template resources can be used for managing events templates.
 ## /tunnels/{tunnelId}/templates/{templateId}/contacts/{contactId}
 
 + Parameters
-    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
-    + templateId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `templateId`which can identify template.
-    + contactId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `contactId`which can identify contact.
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId` which can identify tunnel.
+    + templateId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `templateId` which can identify template.
+    + contactId (required, string, `g2h9664e8-f8cd-47df-a5af-1cd821e9aaa`) ... String `contactId` which can identify contact.
 
 ### PUT
 -----------
@@ -3380,13 +3380,19 @@ The document resources can be used for managing documents.
                         "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
                         "link": "/cdn/file/b63b6226-0978-4155-8249-1ca396f6c7e7",
                         "filename": "Photo.jpg",
-                        "title": "Photo of tunnel"
+                        "title": "Photo of tunnel",
+                        "contentType": "image/jpg",
+                        "created": "2016-01-04T11:12:27.4381530+01:00",
+                        "changed": "2016-01-04T11:12:27.4381530+01:00"
                     },
                     {
                         "id": "b63b6226-0978-4155-8249-1ca396656c77",
                         "link": "/cdn/file/b63b6226-0978-4155-8249-1ca396656c77",
                         "filename": "Switch.jpg",
-                        "title": "Photo of switch"
+                        "title": "Photo of switch",
+                        "contentType": "image/jpg",
+                        "created": "2016-01-04T11:12:27.4381530+01:00",
+                        "changed": "2016-01-04T11:12:27.4381530+01:00"
                     }
                 ]
             }
@@ -3467,7 +3473,10 @@ The document resources can be used for managing documents.
                 "id": "b63b6226-0978-4155-8249-1ca396f6c7e7",
                 "link": "/cdn/file/b63b6226-0978-4155-8249-1ca396f6c7e7",
                 "filename": "Photo.jpg",
-                "title": "Photo of tunnel"
+                "title": "Photo of tunnel",
+                "contentType": "image/jpg",
+                "created": "2016-01-04T11:12:27.4381530+01:00",
+                "changed": "2016-01-04T11:12:27.4381530+01:00"
             }
         
 + Response 401
