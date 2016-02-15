@@ -26,6 +26,10 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 ## User Password (object)
 + password: "123456" (string, required)
 
+## SimpleReport (object)
++ id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
++ title: "Rozbitá žárovka" (string, required)
+
 ## Report (object)
 + id: "125f9669-af7a-4eeb-b7e5-7f1d7286e195" (string, required)
 + automatic: true (boolean, required)
@@ -134,7 +138,7 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + owner: {} (Owner, optional)
 + author: {} (Author, required)
 + notes: [] (array[EventNote], required)
-+ reports: ["125f9669-af7a-4eeb-b7e5-7f1d7286e195", "e27164e8-f8cd-47df-a5af-1c121e9aa94a"] (array[string], required)
++ reports: [] (array[SimpleReport], required)
 + steps: {} (EventSteps, required)
 + contacts: [] (array[Contact], optional)
 + attachments: [] (array[Attachment], optional)
@@ -766,7 +770,16 @@ The user resources can be used for managing users.
                     "forename": "Jan",
                     "surname": "Dlaždička"
                   },
-                  "reports": [1,3,4]
+                  "reports": [
+                    {
+                        "id": "e268964e8-f8cd-47df-a5af-1c121e9aa94a",
+                        "title": "Hlášení požáru"
+                    },
+                    {
+                        "id": "e268694e8-f8cd-47df-a5af-1c121e9aa94a",
+                        "title": "Závada elektroinstalace"
+                    }
+                  ]
                 }
               ]
             }
