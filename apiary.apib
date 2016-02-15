@@ -2675,6 +2675,67 @@ The scheduler resources can be used for managing automatic schedule events.
 
 + Response 401
 
+## /tunnels/{tunnelId}/schedulers/{schedulerId}
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
+    + schedulerId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `schedulerId`which can identify scheduker.
+
+
+### POST
+
++ Request
+
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+            
+    + Body 
+    
+            {
+              "active": active,
+              "description": "test",
+              "location": "tunel",
+              "title": "1 - Provozní prohlídka",
+              "occuresOn": "2016-02-16T14:06:21.000000+01:00",
+              "onlyOnce": true,
+              "parentType": {
+                "code": "010",
+                "id": "11328059327f4fac833f04774fdbb4d1",
+                "name": "Provozní prohlídka",
+                "priority": 0,
+                "title": "1"
+              },
+              "parentTypeId": "11328059327f4fac833f04774fdbb4d1",
+              "period": null,
+              "priority": 1,
+              "severity": "COMMONOCCURRENCE",
+              "timeUnit": "HOURS",
+              "type": {
+                "code": "010",
+                "id": "11328059327f4fac833f04774fdbb4d1",
+                "name": "Provozní prohlídka",
+                "priority": 0,
+                "title": "1"
+              }
+            }
+
++ Response 204
++ Response 401
+
+### DELETE
+
++ Request
+
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+
++ Response 204
++ Response 401
+
 # Group Reports 
 The report resources can be used for managing reports.
 
