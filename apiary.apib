@@ -360,6 +360,32 @@ Tubis API is the REST API project for managing events, users, documents, etc.
 + value: "1" (string, required)
 + label: "Number" (string, required)
 
+## Scheduler (object)
+
++ id: "7450e18103f343e880e9165d86cb806d" (string, required)
++ title: "1 - Provozní prohlídka" (string, required)
++ description: "" (string, optional)
++ location: "" (string, optional)
++ occuresOn: "2016-02-16T14:06:21.000000+01:00" (string, required)
++ onlyOnce: true (boolean, required)
++ parentType: {} (SchedulerType,required)
++ parentTypeId: "11328059327f4fac833f04774fdbb4d1" (string, required)
++ period: ""
++ priority: 1 (number,required)
++ severity: "COMMONOCCURRENCE" (string, required)
++ timeUnit: "HOURS" (string, required)
++ type: {} (SchedulerType, required)
+
+## SchedulerType (object)
+
++ code: "010" (string, required)
++ id: "11328059327f4fac833f04774fdbb4d1" (string, required)
++ name: "Provozní prohlídka" (string, required)
++ priority: 0 (number, required)
++ title: "Title" (string, required)
+
+
+
 # Group Authentication
 The authentication resources can be used for **log in** and **log out** the user to the Tubis application.
 
@@ -2630,11 +2656,96 @@ The scheduler resources can be used for managing automatic schedule events.
 
 ## /tunnels/{tunnelId}/schedulers
 
+### GET
+
++ Parameters
+    + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
++ Request
+
+    + Header
+    
+            Content-Type: application/json
+            X-Api-Key: <your-private-token-key>
+            
++ Response 200 (application/json)
+
+    + Body
+    
+            {
+              "schedulers": [
+                {
+                  "id": "7450e18103f343e880e9165d86cb806d",
+                  "tunnelId": "ba402c25777e4f4b82217b79cf5bf088",
+                  "created": "2016-02-05T10:39:52.0354646+01:00",
+                  "occuresOn": "2016-02-04T10:39:49.0000000+01:00",
+                  "nextOccuresOn": "2016-02-04T10:39:49.0000000+01:00",
+                  "priority": 1,
+                  "title": "0 - Plánovaná událost",
+                  "note": "0 - Plánovaná událost",
+                  "state": "DISABLED",
+                  "timeUnit": "DAYS",
+                  "parentType": {
+                    "id": "abfdd47c1b62447daaa8e47a178fa306",
+                    "code": "000",
+                    "name": "Plánovaná událost"
+                  },
+                  "type": {
+                    "id": "abfdd47c1b62447daaa8e47a178fa306",
+                    "code": "000",
+                    "name": "a"
+                  },
+                  "severity": "COMMONOCCURRENCE",
+                  "period": 1,
+                  "author": {
+                    "id": "ba02a410b79b4d0fb045d9dfc33b285c",
+                    "forename": "Jiří",
+                    "surname": "Balcárek"
+                  }
+                },
+                {
+                  "id": "b7fe42621314442f8b7921c0b82dc3ca",
+                  "tunnelId": "ba402c25777e4f4b82217b79cf5bf088",
+                  "created": "2016-02-05T10:36:57.7605021+01:00",
+                  "occuresOn": "2016-02-04T10:36:42.0000000+01:00",
+                  "nextOccuresOn": "2016-02-04T10:36:42.0000000+01:00",
+                  "priority": 1,
+                  "title": "0 - Plánovaná událost",
+                  "note": "0 - Plánovaná událost",
+                  "state": "DISABLED",
+                  "timeUnit": "HOURS",
+                  "parentType": {
+                    "id": "abfdd47c1b62447daaa8e47a178fa306",
+                    "code": "000",
+                    "name": "Plánovaná událost"
+                  },
+                  "type": {
+                    "id": "abfdd47c1b62447daaa8e47a178fa306",
+                    "code": "000",
+                    "name": "a"
+                  },
+                  "severity": "COMMONOCCURRENCE",
+                  "period": 1,
+                  "author": {
+                    "id": "ba02a410b79b4d0fb045d9dfc33b285c",
+                    "forename": "Jiří",
+                    "surname": "Balcárek"
+                  }
+                }
+              ]
+            }
+        
+        
++ Response 401
+
+
+
 ### POST
 
 + Parameters
     + tunnelId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `tunnelId`which can identify tunnel.
 + Request
+
+    + Attributes (Scheduler)
 
     + Header
     
@@ -2682,9 +2793,12 @@ The scheduler resources can be used for managing automatic schedule events.
     + schedulerId (required, string, `e27164e8-f8cd-47df-a5af-1c121e9aa94a`) ... String `schedulerId`which can identify scheduker.
 
 
-### POST
+### PUT
+
 
 + Request
+
+    + Attributes (Scheduler)
 
     + Header
     
